@@ -1,0 +1,147 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{fullpage}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage[linesnumbered,ruled,vlined]{algorithm2e}
+\usepackage{enumitem}
+
+\parindent0in
+\pagestyle{plain}
+\thispagestyle{plain}
+
+\newcommand{\assignment}{Homework 1}
+\newcommand{\duedate}{July 19, 2019}
+
+% \renewcommand\thesubsection{\arabic{subsection}}
+
+\title{Homework 1}
+\date{}
+
+\begin{document}
+
+Fundação Getulio Vargas\hfill\\
+Estruturas de Dados e Algoritmos\hfill\textbf{\assignment}\\
+Prof.\ Jorge Poco\hfill\textbf{Due:}: \duedate\\
+\smallskip\hrule\bigskip
+
+{\let\newpage\relax\maketitle}
+\maketitle
+
+
+\section{Induction [3pts]}
+Answers should be written in this document. 
+
+\begin{enumerate}
+  \item Prove by Induction that:
+  \( \sum_{i=1}^{n}i^2=\frac{n(n+1)(2n+1)}{6} \qquad\forall n \geq 0\)
+
+  \item Prove by Induction that:
+  $\forall n \geq 7$ it is true $3^n<n!$
+  
+  \item Prove by Induction that $\forall n \geq 0$
+  \[
+    \left \lceil\frac{n}{2} \right \rceil=
+    \left\{
+    \begin{array}{ll}
+    \frac{n}{2}& \textrm{si $n$ es par}\\
+    \frac{n+1}{2}& \textrm{si $n$ es impar}
+    \end{array}
+    \right.
+  \]
+  
+    \item Prove by induction that a number is divisible by 3 if and only if the sum of its digits is divisible by 3.
+    
+    \item Prove that any integer greater than 59 can be formed using only 7 and 11 cent coins.
+  
+  \item Prove by induction that $F_{n+k}=F_{k}F_{n+1}+F_{k-1}F_{n}$
+  
+  \item Prove by induction in $n$ that \(\sum_{m=0}^{n}{n \choose m}=2^n\)
+  
+  \item Prove by induction that a graph with $n$ vertices can have at most  $\frac{n(n-1)}{2}$ edges.
+  
+  \item Prove by induction that a complete binary tree\footnote{http://web.cecs.pdx.edu/~sheard/course/Cs163/Doc/FullvsComplete.html} with $n$ levels has $2^n-1$ vertices.
+  
+  \item A polygon is convex if each pair of points in the polygon can be joined by a straight line that does not leave the polygon. Prove by induction in $n>3$ that the sum of the angles of a polygon of $n$ vertices is $180(n-2)$.
+  
+\end{enumerate}
+
+\section{Correctness of bubblesort [2pts]}
+Bubblesort is a popular, but inefficient, sorting algorithm. It works by repeatedly swapping adjacent elements that are out of order.
+
+\begin{algorithm}[H]
+\SetAlgoLined
+  \For{$i = 1$ \textbf{to} $A.length -1$} {
+    \For{$j = A.length$ \textbf{downto} $i + 1$} {
+      \If{$A[j] < A[j-1]$} {
+        exchange $A[j]$ with $A[j-1]$
+      }
+    }
+  }
+\caption{BUBBLESORT(A)}
+\end{algorithm}
+
+\begin{enumerate}[label=\Alph*]
+  \item Let $A'$ denote the output of BUBBLESORT(A). To prove that BUBBLESORT is correct, we need to prove that it terminates and that
+  
+  \begin{equation} \label{eq:1}
+    A'[1] \leq A'[2] \leq ... \leq A'[n]
+  \end{equation}
+  
+  where $n = A.length$. In order to show that BUBBLESORT actually sorts, what else do we need to prove?
+  
+  The next two parts will prove inequality~(\ref{eq:1}).
+  
+  \item State precisely a loop invariant for the \textbf{for} loop in lines 2–6, and prove that this loop invariant holds. Your proof should use the structure of the loop invariant proof presented in this chapter.
+  
+  \item Using the termination condition of the loop invariant proved in part (B), state a loop invariant for the for loop in lines 1–7 that will allow you to prove inequality~(\ref{eq:1}). Your proof should use the structure of the loop invariant proof presented in this chapter.
+  
+  \item What is the worst-case running time of BUBBLESORT? How does it compare to the running time of insertion sort?
+\end{enumerate}
+
+
+\section{Growth of Functions [2pts]}
+
+\begin{enumerate}[label=\Alph*]
+  \item For each of the following pairs of functions, either $f(n)$ is in $O(g(n))$, $f(n)$ is in $\Omega(g(n))$, or $f(n) = \Theta(g(n))$. Determine which relationship is correct and briefly explain why.
+    \begin{itemize}
+      \item $f(n) = \log n^2$; $g(n) = \log n + 5$
+      \item $f(n) = \log^2 n$; $g(n) = \log n$
+      \item $f(n) = n\log n + n$; $g(n) = \log n$
+      \item $f(n) = 2^n$; $g(n) = 10n^2$
+    \end{itemize}
+  
+  \item Prove that $n^3 -3n^2 -n+1 = \Theta(n^3)$.
+  \item Prove that $n^2 = O(2^n)$.
+  
+\end{enumerate}
+
+
+\section{Insertion Sort - Mergesort - Quicksort [3pts]}
+Implement the insertion sort, merge sort and quicksort using the template \texttt{test.py} (use Python 3.X). Create a \texttt{test.cpp} file and write the equivalent code from \texttt{test.py} in C++, ie., the functions: main, \texttt{insertion\_sort}, \texttt{merge\_sort}, \texttt{quicksort} and \texttt{is\_sorted}. For the random number generations you can use the \texttt{rand} function from \texttt{cstdlib}\footnote{\url{http://www.cplusplus.com/reference/cstdlib/rand/}}. Your code should print the tuple (number of objects, time insertion\_sort, time merge\_sort, time quicksort)
+
+You must submit both \texttt{test.py} and \texttt{test.cpp}. Graphs and descriptions must be included in this document. 
+
+\subsection{Random Order}
+\begin{enumerate}
+  \item Create 10 sets of numbers in random order. The sets must have \{10k, 20k, 30k, ..., 100k\} numbers.
+  
+  \item Sort these numbers using the 3 algorithms and calculate the time each algorithm takes for each set of numbers.
+  
+  \item Generate a plot (using excel or another tool) showing a \emph{linechart}, where the $x$-axis is the ``number of elements", and the $y$-axis is the time that the algorithms took in C++ and Python. This plot must have 6 lines of different colors with a legend.
+  
+  \item Write a small paragraph (3 to 4 lines) describing the results.
+\end{enumerate}
+
+\subsection{Ascending Order}
+Do the same experiment when the numbers are ordered in ascending order.
+
+\subsection{Descending Order}
+Do the same experiment when the numbers are ordered in descending order.
+
+
+
+
+\end{document}
