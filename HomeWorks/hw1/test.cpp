@@ -1,7 +1,9 @@
-# include <iostream>
-# include <vector>
+#include <iostream>
+#include <vector>
 #include <stdlib.h> 
 #include <time.h> 
+#include <chrono>
+#include <iomanip>
 
 using namespace std;
 
@@ -102,11 +104,11 @@ int	main()
     v_insertsort = insertion_sort(a);
     v_mergesort  = merge_sort(a);
 
-    print_vector(a);
-    print_vector(v_mergesort);
-    print_vector(v_insertsort);
-    cout << is_sorted(a) << endl;
-    cout << is_sorted(v_insertsort) << endl;
+    // print_vector(a);
+    // print_vector(v_mergesort);
+    // print_vector(v_insertsort);
+    // cout << is_sorted(a) << endl;
+    // cout << is_sorted(v_insertsort) << endl;
 
 
     srand((unsigned)time(NULL));
@@ -114,21 +116,40 @@ int	main()
     for (int n = 1; n < 11; ++n)
     {
         vector<int> v;
+        vector<int> v_sorted;
 
         // Gerar o vetor
         /// AJUSTAR O TAMANHO DO VETOR x10000 !!!!!!!!
-        for (int i = 0; i < n*1; ++i)
+        for (int i = 0; i < n*10000; ++i)
         {
             r = rand() % (n*2);
             v.push_back(r);
         }
-        vector <int> v_sorted = insertion_sort(v);
+
+        auto start_time = chrono::steady_clock::now();
+
+        v_sorted        = insertion_sort(v);
+
+        auto end_time   = chrono::steady_clock::now();
+        auto diff       = end_time - start_time;
+        auto diff_msec  = chrono::duration_cast<chrono::milliseconds>(diff);
+
+        float t1  = (float)diff_msec.count()/1000;
+
+
         if (not is_sorted(v_sorted))
         {
             cout << "ERROR" << endl;
         }
 
+        start_time = chrono::steady_clock::now();
+
         v_sorted = merge_sort(v);
+        end_time   = chrono::steady_clock::now();
+        diff       = end_time - start_time;
+        diff_msec  = chrono::duration_cast<chrono::milliseconds>(diff);
+        float t2  = (float)diff_msec.count()/1000;
+
         if (not is_sorted(v_sorted))
         {
             cout << "ERROR" << endl;
@@ -140,8 +161,11 @@ int	main()
         //     cout << "ERROR" << endl;
         // }
 
-        print_vector(v);
-        print_vector(v_sorted);
+        // print_vector(v);
+        // print_vector(v_sorted);
+        cout << setprecision(3) << fixed;
+        cout << t1 << endl;
+        cout << t2 << endl;
     }
 
 

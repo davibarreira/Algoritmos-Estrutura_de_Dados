@@ -1,4 +1,5 @@
 import numpy as np
+import time
 
 
 def insert_sort(a):
@@ -49,18 +50,24 @@ def is_sorted(a):
 
 def main():
     ns = np.linspace(10000, 100000, 10)
+    # ns = np.linspace(1000, 10000, 10)
 
     for n in ns:
         # create and fill an array with random numbers
-        a = [3, 4, 6, 1, 5, 2]
+        # a = [3, 4, 6, 1, 5, 2]
+        a = list(np.random.randint(0,n,size = int(n)))
 
         # call insert_sort and  calculate the time
+        start_time = time.time()
         sorted_a = insert_sort(a)
+        t1 = time.time() - start_time
         if not is_sorted(sorted_a):
             print("ERROR")
 
         # # call merge_sort and  calculate the time
+        start_time = time.time()
         sorted_a = merge_sort(a)
+        t2 = time.time() - start_time
         if not is_sorted(sorted_a):
             print("ERROR")
 
@@ -69,6 +76,7 @@ def main():
         # if not is_sorted(sorted_a):
         #     print("ERROR")
 
+        print("%d %f %f" % (n, t1, t2))
         # print("%d %f %f" % (n, t1, t2, t3))
 
 
