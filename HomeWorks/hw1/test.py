@@ -13,8 +13,27 @@ def insert_sort(a):
     return a
 
 
+def merge(a, b):
+    result = []
+    while len(a) > 0 and len(b) > 0:
+        if a[0] < b[0]:
+            result.append(a[0])
+            a.pop(0)
+        else:
+            result.append(b[0])
+            b.pop(0)
+    result.extend(a)
+    result.extend(b)
+    return result
+
+
 def merge_sort(a):
-    pass
+    if len(a) <= 1:
+        return a
+    i = int(len(a) / 2)
+    left = a[0:i]
+    right = a[i:]
+    return merge(merge_sort(left), merge_sort(right))
 
 
 def quicksort(a):
@@ -41,9 +60,9 @@ def main():
             print("ERROR")
 
         # # call merge_sort and  calculate the time
-        # sorted_a = merge_sort(a)
-        # if not is_sorted(sorted_a):
-        #     print("ERROR")
+        sorted_a = merge_sort(a)
+        if not is_sorted(sorted_a):
+            print("ERROR")
 
         # # call quicksort and  calculate the time
         # sorted_a = quicksort(a)
