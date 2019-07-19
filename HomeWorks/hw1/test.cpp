@@ -1,5 +1,7 @@
 # include <iostream>
 # include <vector>
+#include <stdlib.h> 
+#include <time.h> 
 
 using namespace std;
 
@@ -91,6 +93,7 @@ void print_vector(vector <T> a){
 // MAIN ///////////////////////////////////////////
 int	main()
 {
+
     vector<float> a;
     a = {0,3,2,1};
     vector<float> v_insertsort;
@@ -104,6 +107,42 @@ int	main()
     print_vector(v_insertsort);
     cout << is_sorted(a) << endl;
     cout << is_sorted(v_insertsort) << endl;
+
+
+    srand((unsigned)time(NULL));
+    int r;
+    for (int n = 1; n < 11; ++n)
+    {
+        vector<int> v;
+
+        // Gerar o vetor
+        /// AJUSTAR O TAMANHO DO VETOR x10000 !!!!!!!!
+        for (int i = 0; i < n*1; ++i)
+        {
+            r = rand() % (n*2);
+            v.push_back(r);
+        }
+        vector <int> v_sorted = insertion_sort(v);
+        if (not is_sorted(v_sorted))
+        {
+            cout << "ERROR" << endl;
+        }
+
+        v_sorted = merge_sort(v);
+        if (not is_sorted(v_sorted))
+        {
+            cout << "ERROR" << endl;
+        }
+
+        // v_sorted = quick_sort(v);
+        // if (not is_sorted(v_sorted))
+        // {
+        //     cout << "ERROR" << endl;
+        // }
+
+        print_vector(v);
+        print_vector(v_sorted);
+    }
 
 
 	
