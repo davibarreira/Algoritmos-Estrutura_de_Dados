@@ -1,3 +1,4 @@
+#include <fstream>
 #include <iostream>
 #include <vector>
 #include <stdlib.h> 
@@ -138,6 +139,7 @@ void print_vector(vector <T> a){
 // MAIN ///////////////////////////////////////////
 int	main()
 {
+    ofstream out("sort_cpp_random.txt");
 
     vector<float> a;
     a = {0,3,2,1,0,0,0,1};
@@ -159,15 +161,15 @@ int	main()
 
     srand((unsigned)time(NULL));
     int r;
-    for (int n = 1; n < 2; ++n)
+    for (int n = 1; n < 11; ++n)
     {
         vector<int> v;
         vector<int> v_sorted;
 
         // Gerar o vetor
-        for (int i = 0; i < n*10; ++i)
+        for (int i = 0; i < n*100; ++i)
         {
-            r = rand() % (n*2);
+            r = rand() % (n*100);
             v.push_back(r);
         }
 
@@ -206,15 +208,14 @@ int	main()
             cout << "ERROR" << endl;
         }
 
-        // print_vector(v);
-        // print_vector(v_sorted);
+        cout << setprecision(4) << fixed;
+        out  << t1 << " "<< endl; 
 
-        cout << setprecision(3) << fixed;
         cout << t1 << endl;
-        cout << t2 << endl;
     }
 
 
 	
+    out.close();
 	return 0;
 }
