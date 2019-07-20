@@ -41,6 +41,8 @@ bool is_sorted(vector <T> a){
     return true;
 }
 ///////////////////////////////////////////////////
+
+// MERGE_SORT //////////////////////////////////////
 template <class T>
 vector <T> merge(vector <T> a, vector <T> b){
     vector <T> result;
@@ -77,8 +79,49 @@ vector <T> merge_sort(vector <T> a){
 
     return merge(merge_sort(left),merge_sort(right));
 }
+///////////////////////////////////////////////////
 
+// QUICKSORT /////////////////////////////////////////
+template <class T>
+vector <T> quicksort(vector <T> a){
+    if (a.size() <= 1)
+    {
+        return a;
+    }
+    vector<T> left;
+    vector<T> right;
+    vector<T> equal;
+    vector<T> v;
 
+    vector<T> pivot;
+    pivot.push_back(a[rand() % (a.size()-1)]);
+    for (auto i: a)
+    {
+        if (i<pivot[0])
+        {
+            left.push_back(i);
+        }
+        if (i == pivot[0])
+        {
+            equal.push_back(i);
+        }
+        if (i>pivot[0])
+        {
+            right.push_back(i);
+        }
+    }
+
+    left  = quicksort(left);
+    right = quicksort(right);
+
+    v.insert(v.end(), left.begin() ,left.end());
+    v.insert(v.end(), equal.begin(),equal.end());
+    v.insert(v.end(), right.begin(),right.end());
+
+    return v;
+
+}
+////////////////////////////////////////////////////
 
 // EXTRAS /////////////////////////////////////////
 template <class T>
@@ -97,13 +140,16 @@ int	main()
 {
 
     vector<float> a;
-    a = {0,3,2,1};
+    a = {0,3,2,1,0,0,0,1};
     vector<float> v_insertsort;
     vector<float> v_mergesort;
+    vector<float> v_quicksort;
 
     v_insertsort = insertion_sort(a);
     v_mergesort  = merge_sort(a);
+    v_quicksort  = quicksort(a);
 
+    print_vector(v_quicksort);
     // print_vector(a);
     // print_vector(v_mergesort);
     // print_vector(v_insertsort);
@@ -113,14 +159,13 @@ int	main()
 
     srand((unsigned)time(NULL));
     int r;
-    for (int n = 1; n < 11; ++n)
+    for (int n = 1; n < 2; ++n)
     {
         vector<int> v;
         vector<int> v_sorted;
 
         // Gerar o vetor
-        /// AJUSTAR O TAMANHO DO VETOR x10000 !!!!!!!!
-        for (int i = 0; i < n*10000; ++i)
+        for (int i = 0; i < n*10; ++i)
         {
             r = rand() % (n*2);
             v.push_back(r);
@@ -155,14 +200,15 @@ int	main()
             cout << "ERROR" << endl;
         }
 
-        // v_sorted = quick_sort(v);
-        // if (not is_sorted(v_sorted))
-        // {
-        //     cout << "ERROR" << endl;
-        // }
+        v_sorted = quicksort(v);
+        if (not is_sorted(v_sorted))
+        {
+            cout << "ERROR" << endl;
+        }
 
         // print_vector(v);
         // print_vector(v_sorted);
+
         cout << setprecision(3) << fixed;
         cout << t1 << endl;
         cout << t2 << endl;
