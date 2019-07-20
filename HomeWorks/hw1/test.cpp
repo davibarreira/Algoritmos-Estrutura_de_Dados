@@ -143,7 +143,7 @@ int	main()
 
     srand((unsigned)time(NULL));
     int r;
-    int min_size = 100; // menor tamanho do vetor
+    int min_size = 10000; // menor tamanho do vetor
 
     for (int i = 0; i < 3; ++i)
     {
@@ -230,6 +230,7 @@ int	main()
 
             cout << setprecision(4) << fixed;
             out  << n << "," << t1 << ","<< t2 << "," << t3 <<endl; 
+            cout << n << endl;
 
         }
 
