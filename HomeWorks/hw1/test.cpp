@@ -139,83 +139,103 @@ void print_vector(vector <T> a){
 // MAIN ///////////////////////////////////////////
 int	main()
 {
-    ofstream out("sort_cpp_random.txt");
-
-    vector<float> a;
-    a = {0,3,2,1,0,0,0,1};
-    vector<float> v_insertsort;
-    vector<float> v_mergesort;
-    vector<float> v_quicksort;
-
-    v_insertsort = insertion_sort(a);
-    v_mergesort  = merge_sort(a);
-    v_quicksort  = quicksort(a);
-
-    print_vector(v_quicksort);
-    // print_vector(a);
-    // print_vector(v_mergesort);
-    // print_vector(v_insertsort);
-    // cout << is_sorted(a) << endl;
-    // cout << is_sorted(v_insertsort) << endl;
 
 
     srand((unsigned)time(NULL));
     int r;
-    for (int n = 1; n < 11; ++n)
+    int min_size = 100; // menor tamanho do vetor
+
+    for (int i = 0; i < 3; ++i)
     {
-        vector<int> v;
-        vector<int> v_sorted;
+        ofstream out;
+        if (i==0){out.open("sort_cpp_random.txt");}
+        if (i==1){out.open("sort_cpp_ascend.txt");}
+        if (i==2){out.open("sort_cpp_descend.txt");}
 
-        // Gerar o vetor
-        for (int i = 0; i < n*100; ++i)
+        for (int n = 1; n < 11; ++n)
         {
-            r = rand() % (n*100);
-            v.push_back(r);
+            vector<int> v;
+            vector<int> v_sorted;
+
+            // Gerar o vetor a depender do loop
+            // i = 0 -> Loop com vetor aleatorio
+            // i = 1 -> Loop com vetor ascendente
+            // i = 2 -> Loop com vetor descendente
+
+            if (i==0)
+            {
+                for (int i = 0; i < n*min_size; ++i)
+                {
+                    r = rand() % (n*min_size);
+                    v.push_back(r);
+                }
+            }
+
+            if (i==1)
+            {
+                for (int i = 0; i < n*min_size; ++i)
+                {
+                    v.push_back(i);
+                }
+            }
+
+            if (i==2)
+            {
+                for (int i = n*min_size - 1; i >= 0; --i)
+                {
+                    v.push_back(i);
+                }
+            }
+
+
+            auto start_time = chrono::steady_clock::now();
+
+            v_sorted        = insertion_sort(v);
+
+            auto end_time   = chrono::steady_clock::now();
+            auto diff       = end_time - start_time;
+            auto diff_msec  = chrono::duration_cast<chrono::milliseconds>(diff);
+
+            float t1  = (float)diff_msec.count()/1000;
+
+
+            if (not is_sorted(v_sorted))
+            {
+                cout << "ERROR" << endl;
+            }
+
+            start_time = chrono::steady_clock::now();
+            v_sorted = merge_sort(v);
+            end_time   = chrono::steady_clock::now();
+            diff       = end_time - start_time;
+            diff_msec  = chrono::duration_cast<chrono::milliseconds>(diff);
+            float t2  = (float)diff_msec.count()/1000;
+
+            if (not is_sorted(v_sorted))
+            {
+                cout << "ERROR" << endl;
+            }
+
+
+            start_time = chrono::steady_clock::now();
+            v_sorted = quicksort(v);
+            end_time   = chrono::steady_clock::now();
+            diff       = end_time - start_time;
+            diff_msec  = chrono::duration_cast<chrono::milliseconds>(diff);
+            float t3  = (float)diff_msec.count()/1000;
+            if (not is_sorted(v_sorted))
+            {
+                cout << "ERROR" << endl;
+            }
+
+            cout << setprecision(4) << fixed;
+            out  << n << "," << t1 << ","<< t2 << "," << t3 <<endl; 
+
         }
 
-        auto start_time = chrono::steady_clock::now();
-
-        v_sorted        = insertion_sort(v);
-
-        auto end_time   = chrono::steady_clock::now();
-        auto diff       = end_time - start_time;
-        auto diff_msec  = chrono::duration_cast<chrono::milliseconds>(diff);
-
-        float t1  = (float)diff_msec.count()/1000;
-
-
-        if (not is_sorted(v_sorted))
-        {
-            cout << "ERROR" << endl;
-        }
-
-        start_time = chrono::steady_clock::now();
-
-        v_sorted = merge_sort(v);
-        end_time   = chrono::steady_clock::now();
-        diff       = end_time - start_time;
-        diff_msec  = chrono::duration_cast<chrono::milliseconds>(diff);
-        float t2  = (float)diff_msec.count()/1000;
-
-        if (not is_sorted(v_sorted))
-        {
-            cout << "ERROR" << endl;
-        }
-
-        v_sorted = quicksort(v);
-        if (not is_sorted(v_sorted))
-        {
-            cout << "ERROR" << endl;
-        }
-
-        cout << setprecision(4) << fixed;
-        out  << t1 << " "<< endl; 
-
-        cout << t1 << endl;
+        out.close();
     }
 
-
 	
-    out.close();
 	return 0;
 }
