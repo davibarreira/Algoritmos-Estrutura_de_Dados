@@ -38,7 +38,16 @@ def merge_sort(a):
 
 
 def quicksort(a):
-    pass
+    if len(a) <= 1:
+        return a
+    l,e,r =[],[],[]
+    p = a[np.random.randint(0,len(a)-1)]
+    for x in a:
+        if x < p:    l.append(x)
+        elif x == p: e.append(x)
+        else:        r.append(x) 
+            
+    return quicksort(l)+e+quicksort(r)
 
 
 def is_sorted(a):
@@ -51,6 +60,7 @@ def is_sorted(a):
 def main():
     ns = np.linspace(10000, 100000, 10)
     # ns = np.linspace(1000, 10000, 10)
+    res = []
 
     for n in ns:
         # create and fill an array with random numbers
@@ -58,11 +68,11 @@ def main():
         a = list(np.random.randint(0,n,size = int(n)))
 
         # call insert_sort and  calculate the time
-        start_time = time.time()
-        sorted_a = insert_sort(a)
-        t1 = time.time() - start_time
-        if not is_sorted(sorted_a):
-            print("ERROR")
+        # start_time = time.time()
+        # sorted_a = insert_sort(a)
+        # t1 = time.time() - start_time
+        # if not is_sorted(sorted_a):
+        #     print("ERROR")
 
         # # call merge_sort and  calculate the time
         start_time = time.time()
@@ -72,12 +82,17 @@ def main():
             print("ERROR")
 
         # # call quicksort and  calculate the time
-        # sorted_a = quicksort(a)
-        # if not is_sorted(sorted_a):
-        #     print("ERROR")
+        start_time = time.time()
+        sorted_a = quicksort(a)
+        t3 = time.time() - start_time
+        if not is_sorted(sorted_a):
+            print("ERROR")
 
-        print("%d %f %f" % (n, t1, t2))
+        print("%d %f %f" % (n, t2, t3))
         # print("%d %f %f" % (n, t1, t2, t3))
+        res.append([n,t2,t3])
+    with open('sort_python.txt', 'w') as f:
+        f.write(repr(res))  
 
 
 if __name__ == "__main__":
