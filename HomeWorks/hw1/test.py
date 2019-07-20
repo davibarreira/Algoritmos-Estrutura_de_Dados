@@ -62,38 +62,55 @@ def main():
     # ns = np.linspace(1000, 10000, 10)
     res = []
 
-    for n in ns:
-        # create and fill an array with random numbers
-        # a = [3, 4, 6, 1, 5, 2]
-        a = list(np.random.randint(0,n,size = int(n)))
+    for i in range(3):
 
-        # call insert_sort and  calculate the time
-        # start_time = time.time()
-        # sorted_a = insert_sort(a)
-        # t1 = time.time() - start_time
-        # if not is_sorted(sorted_a):
-        #     print("ERROR")
+        for n in ns:
+            # create and fill an array with random numbers
+            if i == 0:
+                a = list(np.random.randint(0,n,size = int(n)))
 
-        # # call merge_sort and  calculate the time
-        start_time = time.time()
-        sorted_a = merge_sort(a)
-        t2 = time.time() - start_time
-        if not is_sorted(sorted_a):
-            print("ERROR")
+            elif i == 1:
+                a = list(np.arange(0,int(n),1))
 
-        # # call quicksort and  calculate the time
-        start_time = time.time()
-        sorted_a = quicksort(a)
-        t3 = time.time() - start_time
-        if not is_sorted(sorted_a):
-            print("ERROR")
+            elif i == 2:
+                a = list(np.arange(int(n),0,-1))
 
-        print("%d %f %f" % (n, t2, t3))
-        # print("%d %f %f" % (n, t1, t2, t3))
-        res.append([n,t2,t3])
-    with open('sort_python.txt', 'w') as f:
-        f.write(repr(res))  
+            # call insert_sort and  calculate the time
+            start_time = time.time()
+            sorted_a = insert_sort(a)
+            t1 = time.time() - start_time
+            if not is_sorted(sorted_a):
+                print("ERROR")
 
+            # # call merge_sort and  calculate the time
+            start_time = time.time()
+            sorted_a = merge_sort(a)
+            t2 = time.time() - start_time
+            if not is_sorted(sorted_a):
+                print("ERROR")
+
+            # # call quicksort and  calculate the time
+            start_time = time.time()
+            sorted_a = quicksort(a)
+            t3 = time.time() - start_time
+            if not is_sorted(sorted_a):
+                print("ERROR")
+
+            # print("%d %f %f" % (n, t2, t3))
+            print("%d %f %f %f" % (n, t1, t2, t3))
+            res.append([n,t2,t3])
+
+        if i == 0:
+            with open('sort_python_random.txt', 'w') as f:
+                f.write(repr(res))  
+
+        elif i == 1:
+            with open('sort_python_ascend.txt', 'w') as f:
+                f.write(repr(res))  
+
+        elif i == 2:
+            with open('sort_python_descend.txt', 'w') as f:
+                f.write(repr(res))  
 
 if __name__ == "__main__":
     main()
