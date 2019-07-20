@@ -58,8 +58,8 @@ def is_sorted(a):
 
 
 def main():
-    ns = np.linspace(10000, 100000, 10)
-    # ns = np.linspace(1000, 10000, 10)
+    min_size = 10000
+    ns = np.linspace(min_size, min_size*10, 10)
     res = []
 
     for i in range(3):
@@ -98,7 +98,7 @@ def main():
 
             # print("%d %f %f" % (n, t2, t3))
             print("%d %f %f %f" % (n, t1, t2, t3))
-            res.append([n,t2,t3])
+            res.append([n,t1,t2,t3])
 
         if i == 0:
             with open('sort_python_random.txt', 'w') as f:
