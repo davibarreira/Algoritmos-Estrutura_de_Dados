@@ -332,8 +332,64 @@ que a quantidade de vértices é $2^{k+1} - 1$.
 
 \end{proof}
 
+\subsection*{1.10}
+\begin{proof}
+$ $\newline
+Caso Base: $n =4$, temos pela definição de polígonos convexoes que podemos traçar uma linha entra dois
+vértices sem que saia do polígono. Portanto, podemos formar dois triângulo. Como seus ângulos somam 180
+cada, temos assim que a soma dos ângulos internos é igual à $180\cdot 2 = 180(4-2)$
+
+Hipótese indutiva: Supondo que a propriedade é válida para polígonos de $n=k$ vértices.
+
+Passo de indução: Tome um polígono convexo de $k$ vértices. Um polígono convexo de $k+1$ vértices pode ser
+formado adicionando um novo vértice fora do polígono original.
+  \begin{figure}[!h]
+  \centering
+  \includegraphics[height=3cm]{Q1_10.png}
+  \end{figure}
+
+Portanto, a soma dos ângulos internos será dada por $180(k-2)+180 = 180(k+1 -2)$, como queríamos demonstrar.
+\end{proof}
 
 \section*{Questão 2}
+\subsection*{2.A}
+Se sabemos que $A' = BUBBLESORT(A)$, tal que $A'[0]<=...<=A'[n]$, onde $n=A.length$. Então, o algoritmo
+termina com seus elementos ordenados. A única coisa que basta garantir é que os elementos de A' são os 
+mesmos elementos de A. Com isso, A' será A ordenado e o algoritmo é eficaz.
+\subsection*{2.B}
+Primeiro, faça $n = A.length$
+
+Assim, o invariante é que no início de cada loop o menor elemento de $A[i,..,n]$ estará no
+máximo na posição $j$.
+
+Para o primeiro loop (inicialização), $j=n$, logo o invariante é trivialmente satisfeito, já que o menor
+elemento de $A[i,...,n]$ está em no máximo na posição $n$. Vamos mostrar que esse invariante se mantém.
+
+Suponha que o menor elemento está no máximo na posição $j=k$. Assim, se o menor elemento estiver em $A[k]$, então
+$A[k]<A[k-1]$, e trocamos os elementos de posição, tal que sabemos que o menor elemento de $A[i,...,n]$ vai estar
+no máximo na posição $k-1$. Se $A[k]$ não é o menor elemento, então o menor elemento já estava no máximo na posição
+$k-1$ e o loop não faz nada. Assim, provamos que o invariante se mantém nas duas condições.
+
+No término, temos que $j=i+1$, então, garantimos que o menor elemento está no máximo na posição $i$.
+\subsection*{2.C}
+Para o loop externo, o invariante é que no início de cada loop, $A[1,...i-1]$ contém os menores $i-1$ elementos
+e está ordenado.
+
+Na inicialização, temos que $i=1$, assim, $A[i-1]=A[0]$ e, portanto, o invariante é verdadeiro por vacuidade.
+
+Supondo que para $i=k$, no início do loop, o vetor $A[j,...,k-1]$ está ordenado com os menores $k-1$ valores de A;
+Pelo item "B", sabemos que ao final do loop interno (linhas 2 a 6), o menor elemento de $A[k,...n]$ vai estar na posição $k$.
+Portanto, ao final dessa iteração, $A[1,...,k]$ vai estar ordenado, já que $A[k]>=A[k-1]$ pelo loop interno, e 
+$A[1]<=...<=A[k-1]$ por hipótese. Logo, provamos que o invariante se mantém.
+
+No término, temos que $i=n+1$, logo $A[1,...,n]$ vai estar ordenado, concluindo nossa prova.
+
+\subsection*{2.D}
+Note que o algoritmo do BUBBLESORT sempre realiza $n-1$ iterações para o loop exterior e $n-i$ iterações
+para o loop interior, onde $i$ é a iteração do loop exterior. Assim, temos $\Theta(n^2)$ para o melhor e
+para o pior caso. Comparado ao {\it Insertion Sort}, o BUBBLESORT tem um pior desempenho, já que o pior caso
+do {\it Insertion Sort} também é $\Theta(n^2)$, porém, seu melhor caso é $\Theta(n)$.
+
 \section*{Questão 3}
 \section*{Questão 4}
 
