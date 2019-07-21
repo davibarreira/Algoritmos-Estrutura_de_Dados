@@ -221,7 +221,32 @@ Como $9a_{n+1} \mod 3 = 0$, então, utilizando a propriedade $P_n$, temos que:
 $$A \mod 3 = \overline{a_0...a_n} + a_{n+1} \mod 3 = a_0 + ... + a_n + a_{n+1} \mod 3$$
 
 
+\subsection*{1.5}
+Caso Base: $n = 60 = 7\cdot7 + 11\cdot1 \therefore$ Satisfeito. 
 
+Hipótese indutiva: Supondo que para $n=k = a\cdot7 + b\dot11$, onde $a,b \in \mathbb{N}\cup\{0\}$
+
+Passo de indução: Para $n = k+1$, temos que $k+1 =a\cdot7 + b\dot11 + 1$.
+
+Utilizaremos o fato de que $2\cdot11-3\cdot7 = 1$ e $8\cdot7 - 5\cdot11 = 1$.
+
+\begin{itemize}
+
+\item Se $a >= 3 \therefore k + 1 =a\cdot7+b\cdot11+2\cdot11-3\cdot7 = (a-3)\cdot7 + (b+2)\cdot11$. Portanto,
+a proposição vale quando $a >=3 $.
+
+\item Se $a<3$, ou seja $a \in \{0,1,2\}$. Além disso, como $n > 59$ e $a\cdot7 + b\cdot11 > 59 \implies b > 4$, já que $a$ é no máximo 2.
+Logo, podemos fazer:
+$$k+1 =a\cdot7+b\cdot11+8\cdot11-3\cdot7 = (a+8)\cdot7 + (b-5)\cdot11 $$
+
+\end{itemize}
+
+\subsection*{1.6}
+Caso Base:
+
+Hipótese indutiva:
+
+Passo de indução:
 
 
 \section*{Questão 2}
