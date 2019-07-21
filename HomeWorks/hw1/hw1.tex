@@ -297,6 +297,21 @@ $$2\cdot 2^k = \bigg[{k+1\choose0}+{k+1\choose1}+...+{k+1\choose k+1}\bigg] = \s
 
 \end{proof}
 
+\subsection*{1.8}
+\begin{proof}
+$ $\newline
+Caso Base: $n = 1$, temos 0 arestas, portanto, $\frac{n(n-1)}{2} = 0 \therefore$ Satisfeito.
+
+Hipótese indutiva: Supondo que para $n=k$, temos um número máximo de arestas igual a $\frac{k(k-1)}{2}$
+
+Passo de indução: Adicionando um novo vértice, temos que ele pode formar arestas com os demais k
+vértices, logo o total de arestas aumenta em $k$, ou seja, temos $\frac{k(k-1)}{2}+k$ arestas.
+
+Portanto, número de arestas para $k+1$ vértices é igual à 
+$$\frac{k(k-1)}{2}+k = \frac{k(k-1 + 2)}{2} = \frac{(k+1)(k+1 -1)}{2}$$
+
+\end{proof}
+
 
 \section*{Questão 2}
 \section*{Questão 3}
