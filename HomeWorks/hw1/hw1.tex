@@ -149,7 +149,7 @@ Do the same experiment when the numbers are ordered in ascending order.
 \subsection{Descending Order}
 Do the same experiment when the numbers are ordered in descending order.
 
-
+\pagebreak
 \part*{Respostas}
 
 \section*{Questão 1}
@@ -169,7 +169,7 @@ $$
 \subsection*{1.2}
 Caso Base: $n = 7$, temos $n! = 7! = 5040$ e $3^7 = 2187 \therefore$ Satisfeito para $n = 7$.
 
-Hipótese indutiva: Suponde que para $n=k, 3^k < k!$
+Hipótese indutiva: Supondo que para $n=k, 3^k < k!$
 
 Passo de indução: Seja $n = k + 1$, $3^k < k!$
 , note que como $k>3$, temos que $k+1>3$
@@ -204,12 +204,33 @@ Se k for ímpar, $\ceil*{\frac{k}{2}} = \frac{k+1}{2}$, assim $k+1$ é par, logo
 $$\ceil*{\frac{k+1}{2}}=\frac{k+1}{2}$$
 
 
+\subsection*{1.4}
+Vamos provar que o resto da divisão de um número por 3 é igual ao resto da divisão da soma
+dos seus dígitos, ou seja, em $P_n$ temos que $\overline{a_1a_2...a_n} \mod 3 = \sum_{i=1}^n{a_i} \mod 3$
+
+Caso Base: Para $P_1$ temos os número com 1 dígito, portanto a condição é satisfeita trivialmente já
+a soma dos dígitos é igual ao próprio número.
+
+Hipótese indutiva: Supondo que $P_n$ é válida.
+
+Passo de indução: Analisando $P_{n+1}$, temos então A = $\overline{a_1...a_na_{n+1}} = \overline{a_1...a_n}+10*a_{n+1}$:
+$$A \mod 3 = \overline{a_1...a_{n+1}} \mod 3$$
+$$A \mod 3 = \overline{a_0...a_n} + 10a_{n+1} \mod 3$$
+$$A \mod 3 = \overline{a_0...a_n} + a_{n+1} +9a_{n+1} \mod 3$$
+Como $9a_{n+1} \mod 3 = 0$, então, utilizando a propriedade $P_n$, temos que:
+$$A \mod 3 = \overline{a_0...a_n} + a_{n+1} \mod 3 = a_0 + ... + a_n + a_{n+1} \mod 3$$
+
+
+
+
+
 \section*{Questão 2}
 \section*{Questão 3}
 \section*{Questão 4}
 
 Os gráficos abaixo comparam os resultados obtidos para os diferentes algoritmos de sorting
-implementados tanto em C++ como em Python. Como esperado, o código de C++ performa melhor
+implementados tanto em C++ como em Python, sendo os gráficos da direita em escala logaritmica para o eixo y.
+Como esperado, o código de C++ performa melhor
 que em Python, com a diferença maior sendo no algoritmo de {\it insert sort}.
 
 Além disso, observamos que o {\it quicksort} apresentou o melhor
