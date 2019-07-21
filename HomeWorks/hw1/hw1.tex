@@ -252,8 +252,8 @@ Utilizaremos o fato de que $2\cdot11-3\cdot7 = 1$ e $8\cdot7 - 5\cdot11 = 1$.
 
 \begin{itemize}
 
-\item Se $a >= 3 \therefore k + 1 =a\cdot7+b\cdot11+2\cdot11-3\cdot7 = (a-3)\cdot7 + (b+2)\cdot11$. Portanto,
-a proposição vale quando $a >=3 $.
+\item Se $a \geq  3 \therefore k + 1 =a\cdot7+b\cdot11+2\cdot11-3\cdot7 = (a-3)\cdot7 + (b+2)\cdot11$. Portanto,
+a proposição vale quando $a \geq 3 $.
 
 \item Se $a<3$, ou seja $a \in \{0,1,2\}$. Além disso, como $n > 59$ e $a\cdot7 + b\cdot11 > 59 \implies b > 4$, já que $a$ é no máximo 2.
 Logo, podemos fazer:
@@ -353,7 +353,7 @@ Portanto, a soma dos ângulos internos será dada por $180(k-2)+180 = 180(k+1 -2
 
 \section*{Questão 2}
 \subsection*{2.A}
-Se sabemos que $A' = BUBBLESORT(A)$, tal que $A'[0]<=...<=A'[n]$, onde $n=A.length$. Então, o algoritmo
+Se sabemos que $A' = BUBBLESORT(A)$, tal que $A'[0]\leq...\leq A'[n]$, onde $n=A.length$. Então, o algoritmo
 termina com seus elementos ordenados. A única coisa que basta garantir é que os elementos de A' são os 
 mesmos elementos de A. Com isso, A' será A ordenado e o algoritmo é eficaz.
 \subsection*{2.B}
@@ -379,8 +379,8 @@ Na inicialização, temos que $i=1$, assim, $A[i-1]=A[0]$ e, portanto, o invaria
 
 Supondo que para $i=k$, no início do loop, o vetor $A[j,...,k-1]$ está ordenado com os menores $k-1$ valores de A;
 Pelo item "B", sabemos que ao final do loop interno (linhas 2 a 6), o menor elemento de $A[k,...n]$ vai estar na posição $k$.
-Portanto, ao final dessa iteração, $A[1,...,k]$ vai estar ordenado, já que $A[k]>=A[k-1]$ pelo loop interno, e 
-$A[1]<=...<=A[k-1]$ por hipótese. Logo, provamos que o invariante se mantém.
+Portanto, ao final dessa iteração, $A[1,...,k]$ vai estar ordenado, já que $A[k]\geq A[k-1]$ pelo loop interno, e 
+$A[1]\leq...\leq A[k-1]$ por hipótese. Logo, provamos que o invariante se mantém.
 
 No término, temos que $i=n+1$, logo $A[1,...,n]$ vai estar ordenado, concluindo nossa prova.
 
@@ -394,10 +394,10 @@ do {\it Insertion Sort} também é $\Theta(n^2)$, porém, seu melhor caso é $\T
 \section*{Questão 3}
 Iremos utilizar as seguintes definições:
 \begin{itemize}
-      \item $ f(n)=O(g(n))\iff \exists n_o \in \mathbb{N}$, e $\exists c_1 \in \mathbb{R}_+$ tal que $\forall n>=n_o \implies f(n) <= c_1 \cdot g(n)$
-      \item $ f(n)=\Omega(g(n))\iff\exists n_o \in \mathbb{N}$, e $\exists c_2 \in \mathbb{R}_+$ tal que $\forall n>=n_o \implies f(n) >= c_2 \cdot g(n)$
+      \item $ f(n)=O(g(n))\iff \exists n_o \in \mathbb{N}$, e $\exists c_1 \in \mathbb{R}_+$ tal que $\forall n\geq n_o \implies f(n) \leq c_1 \cdot g(n)$
+      \item $ f(n)=\Omega(g(n))\iff\exists n_o \in \mathbb{N}$, e $\exists c_2 \in \mathbb{R}_+$ tal que $\forall n\geq n_o \implies f(n) \geq  c_2 \cdot g(n)$
       \item $ f(n)=\Theta(g(n))\iff\exists n_o \in \mathbb{N}$, e $\exists c_1,c_2 \in \mathbb{R}_+$ tal que
-      $\forall n>=n_o \implies c_1 \cdot g(n) >= f(n) >= c_2 \cdot g(n)$
+      $\forall n\geq n_o \implies c_1 \cdot g(n) \geq  f(n) \geq  c_2 \cdot g(n)$
   \end{itemize}
 
 \subsection*{A)}
@@ -405,14 +405,14 @@ Iremos utilizar as seguintes definições:
   \item $f(n) = \Theta(g(n))$;
   \begin{proof}
   $f(n) = \log{n^2} = 2\log{n}$, e $g(n) = \log{n} +5$, assim, para $n_o=2,c_1 = 2,c_2=1/10$, temos que
-  $\forall n>=n_o \implies 1/10\log{n}+5/10 <= 2\log{n} <= 4\log{n} + 20 \therefore f(n) = \Theta(g(n))$
+  $\forall n\geq n_o \implies 1/10\log{n}+5/10 \leq 2\log{n} \leq 4\log{n} + 20 \therefore f(n) = \Theta(g(n))$
   \end{proof}
 
   \item
   $f(n) = \Omega(g(n))$;
   \begin{proof}
   $f(n) = \log^2{n} = \log{n}\cdot\log{n}$ e $g(n) = \log{n}$. Tomando $c_2=1,n_o = 2$, temos que
-  $\forall n >= n_o \implies \log^2{n} >= \log{n} \therefore f(n) = \Omega(g(n))$, pois não existe $c_1$ e $n_o$
+  $\forall n \geq  n_o \implies \log^2{n} \geq  \log{n} \therefore f(n) = \Omega(g(n))$, pois não existe $c_1$ e $n_o$
   que satisfaçam a condição do $f(n) = O(g(n))$.
   \end{proof}
 
@@ -420,7 +420,7 @@ Iremos utilizar as seguintes definições:
   $f(n) = \Omega(g(n))$;
   \begin{proof}
   $f(n) = n\log{n} + n$ e $g(n) = \log{n}$. Tomando $c_2=2,n_o = 2$, temos que
-  $\forall n >= n_o \implies n\log{n} + n >= \log{n} \therefore f(n) = \Omega(g(n))$, pois não existe $c_1$ e $n_o$
+  $\forall n \geq  n_o \implies n\log{n} + n \geq  \log{n} \therefore f(n) = \Omega(g(n))$, pois não existe $c_1$ e $n_o$
   que satisfaçam a condição do $f(n) = O(g(n))$.
   \end{proof}
 
@@ -428,7 +428,7 @@ Iremos utilizar as seguintes definições:
   $f(n) = \Omega(g(n))$;
   \begin{proof}
   $f(n) = 2^n$ e $g(n) =10n^2$. Tomando $c_2=1/10,n_o = 4$, temos que
-  $\forall n >= n_o \implies 2^n >= 10n^2/10 \therefore f(n) = \Omega(g(n))$, pois não existe $c_1$ e $n_o$
+  $\forall n \geq  n_o \implies 2^n \geq  10n^2/10 \therefore f(n) = \Omega(g(n))$, pois não existe $c_1$ e $n_o$
   que satisfaçam a condição do $f(n) = O(g(n))$.
   \end{proof}
 
