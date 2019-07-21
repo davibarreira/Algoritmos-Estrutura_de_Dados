@@ -230,7 +230,7 @@ int	main()
 
             cout << setprecision(8) << fixed;
             out  << n*min_size << "," << t1 << ","<< t2 << "," << t3 <<endl; 
-            cout << n << endl;
+            cout  << n*min_size << "," << t1 << ","<< t2 << "," << t3 <<endl; 
 
         }
 

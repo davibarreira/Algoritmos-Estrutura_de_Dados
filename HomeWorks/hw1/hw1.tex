@@ -134,6 +134,7 @@ You must submit both \texttt{test.py} and \texttt{test.cpp}. Graphs and descript
   \item Generate a plot (using excel or another tool) showing a \emph{linechart}, where the $x$-axis is the ``number of elements", and the $y$-axis is the time that the algorithms took in C++ and Python. This plot must have 6 lines of different colors with a legend.
   
   \item Write a small paragraph (3 to 4 lines) describing the results.
+
 \end{enumerate}
 
 \subsection{Ascending Order}
@@ -141,6 +142,40 @@ Do the same experiment when the numbers are ordered in ascending order.
 
 \subsection{Descending Order}
 Do the same experiment when the numbers are ordered in descending order.
+
+
+\part*{Respostas}
+
+\section*{Questão 1}
+\section*{Questão 2}
+\section*{Questão 3}
+\section*{Questão 4}
+
+Os gráficos abaixo comparam os resultados obtidos para os diferentes algoritmos de sorting
+implementados tanto em C++ como em Python. Como esperado, o código de C++ performa melhor
+que em Python, com a diferença maior sendo no algoritmo de {\it insert sort}.
+
+Além disso, observamos que o {\it quicksort} apresentou o melhor
+desempenho considerando tanto o vetor com valores aleatórios como o com
+valores descendentes.
+No vetor já ordenado ({\it ascending}), o tempo dos três algoritmos é muito baixo, como
+era de se esperar, porém, nesse caso o {\it insert sort} foi quem apresentou o melhor
+resultado.
+
+
+  \begin{figure}[!h]
+  \centering
+  \includegraphics[width=0.8\linewidth,height=5cm]{SortTime_Random.png}
+    \caption{Comparação de performance dos algoritmos de {\it sorting} para vetores aleatórios}
+    \vspace{0.5cm}
+  \includegraphics[width=0.8\linewidth,height=5cm]{SortTime_Ascending.png}
+    \caption{Comparação de performance dos algoritmos de {\it sorting} para vetores crescentes}
+    \vspace{0.5cm}
+  \includegraphics[width=0.8\linewidth,height=5cm]{SortTime_Descending.png}
+    \caption{Comparação de performance dos algoritmos de {\it sorting} para vetores decrescentes}
+  \end{figure}
+
+  % Figure \ref{fig:boat1} shows a boat.
 
 
 
