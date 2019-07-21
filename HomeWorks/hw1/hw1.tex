@@ -386,11 +386,55 @@ No término, temos que $i=n+1$, logo $A[1,...,n]$ vai estar ordenado, concluindo
 
 \subsection*{2.D}
 Note que o algoritmo do BUBBLESORT sempre realiza $n-1$ iterações para o loop exterior e $n-i$ iterações
-para o loop interior, onde $i$ é a iteração do loop exterior. Assim, temos $\Theta(n^2)$ para o melhor e
+para o loop interior, onde $i$ é a iteração do loop exterior. Logo, o total de iterações é dado por
+$(n-1)+(n-2)+...+1 = n(n-1)/2$. Assim, temos $\Theta(n^2)$ para o melhor e
 para o pior caso. Comparado ao {\it Insertion Sort}, o BUBBLESORT tem um pior desempenho, já que o pior caso
 do {\it Insertion Sort} também é $\Theta(n^2)$, porém, seu melhor caso é $\Theta(n)$.
 
 \section*{Questão 3}
+Iremos utilizar as seguintes definições:
+\begin{itemize}
+      \item $ f(n)=O(g(n))\iff \exists n_o \in \mathbb{N}$, e $\exists c_1 \in \mathbb{R}_+$ tal que $\forall n>=n_o \implies f(n) <= c_1 \cdot g(n)$
+      \item $ f(n)=\Omega(g(n))\iff\exists n_o \in \mathbb{N}$, e $\exists c_2 \in \mathbb{R}_+$ tal que $\forall n>=n_o \implies f(n) >= c_2 \cdot g(n)$
+      \item $ f(n)=\Theta(g(n))\iff\exists n_o \in \mathbb{N}$, e $\exists c_1,c_2 \in \mathbb{R}_+$ tal que
+      $\forall n>=n_o \implies c_1 \cdot g(n) >= f(n) >= c_2 \cdot g(n)$
+  \end{itemize}
+
+\subsection*{A)}
+\begin{itemize}
+  \item $f(n) = \Theta(g(n))$;
+  \begin{proof}
+  $f(n) = \log{n^2} = 2\log{n}$, e $g(n) = \log{n} +5$, assim, para $n_o=2,c_1 = 2,c_2=1/10$, temos que
+  $\forall n>=n_o \implies 1/10\log{n}+5/10 <= 2\log{n} <= 4\log{n} + 20 \therefore f(n) = \Theta(g(n))$
+  \end{proof}
+
+  \item
+  $f(n) = \Omega(g(n))$;
+  \begin{proof}
+  $f(n) = \log^2{n} = \log{n}\cdot\log{n}$ e $g(n) = \log{n}$. Tomando $c_2=1,n_o = 2$, temos que
+  $\forall n >= n_o \implies \log^2{n} >= \log{n} \therefore f(n) = \Omega(g(n))$, pois não existe $c_1$ e $n_o$
+  que satisfaçam a condição do $f(n) = O(g(n))$.
+  \end{proof}
+
+  \item
+  $f(n) = \Omega(g(n))$;
+  \begin{proof}
+  $f(n) = n\log{n} + n$ e $g(n) = \log{n}$. Tomando $c_2=2,n_o = 2$, temos que
+  $\forall n >= n_o \implies n\log{n} + n >= \log{n} \therefore f(n) = \Omega(g(n))$, pois não existe $c_1$ e $n_o$
+  que satisfaçam a condição do $f(n) = O(g(n))$.
+  \end{proof}
+
+  \item
+  $f(n) = \Omega(g(n))$;
+  \begin{proof}
+  $f(n) = 2^n$ e $g(n) =10n^2$. Tomando $c_2=1/10,n_o = 4$, temos que
+  $\forall n >= n_o \implies 2^n >= 10n^2/10 \therefore f(n) = \Omega(g(n))$, pois não existe $c_1$ e $n_o$
+  que satisfaçam a condição do $f(n) = O(g(n))$.
+  \end{proof}
+
+
+\end{itemize}
+
 \section*{Questão 4}
 
 Os gráficos abaixo comparam os resultados obtidos para os diferentes algoritmos de sorting
