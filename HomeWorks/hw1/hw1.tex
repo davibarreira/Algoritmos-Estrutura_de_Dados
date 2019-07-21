@@ -9,6 +9,9 @@
 \usepackage{enumitem}
 \usepackage{mathtools}
 \usepackage{amssymb}
+\usepackage{amsthm}
+\renewcommand*{\proofname}{Prova}
+
 
 \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
 
@@ -154,6 +157,8 @@ Do the same experiment when the numbers are ordered in descending order.
 
 \section*{Questão 1}
 \subsection*{1.1}
+\begin{proof}
+$ $\newline
 Caso Base: $n = 1$, temos $\sum^{n}_{i=1}{i^2}= \frac{1\cdot2\cdot3}{6}=1 \therefore$ Satisfeito para $n = 1$.
 
 Hipótese indutiva: Supondo que $\sum^{n}_{i=1}{i^2} =\frac{n(n+1)(2n+1)}{6}$, para $n = k$.
@@ -165,8 +170,11 @@ $$
 $$
 \sum^{k+1}_{i=1}{i^2} = \frac{(k+1)(k+1+1))(2(k+1)+1)}{6}
 $$
+\end{proof}
 
 \subsection*{1.2}
+\begin{proof}
+$ $\newline
 Caso Base: $n = 7$, temos $n! = 7! = 5040$ e $3^7 = 2187 \therefore$ Satisfeito para $n = 7$.
 
 Hipótese indutiva: Supondo que para $n=k, 3^k < k!$
@@ -176,8 +184,11 @@ Passo de indução: Seja $n = k + 1$, $3^k < k!$
 
 $\therefore 3^{k+1}=3^k\cdot3 < k!\cdot(k+1)=(k+1)!$
 
+\end{proof}
 
 \subsection*{1.3}
+\begin{proof}
+$ $\newline
   \[Prop:
     \left \lceil\frac{n}{2} \right \rceil=
     \left\{
@@ -187,6 +198,10 @@ $\therefore 3^{k+1}=3^k\cdot3 < k!\cdot(k+1)=(k+1)!$
     \end{array}
     \right.
   \]
+\end{proof}
+
+\begin{proof}
+$ $\newline
 Caso Base: 
 
 $n=0,\lceil\frac{0}{2}\rceil=0=\frac{n}{2}\therefore$ satisfeito para $n=0$
@@ -202,9 +217,11 @@ $$
 $$
 Se k for ímpar, $\ceil*{\frac{k}{2}} = \frac{k+1}{2}$, assim $k+1$ é par, logo
 $$\ceil*{\frac{k+1}{2}}=\frac{k+1}{2}$$
+\end{proof}
 
 
 \subsection*{1.4}
+\begin{proof}
 Vamos provar que o resto da divisão de um número por 3 é igual ao resto da divisão da soma
 dos seus dígitos, ou seja, em $P_n$ temos que $\overline{a_1a_2...a_n} \mod 3 = \sum_{i=1}^n{a_i} \mod 3$
 
@@ -219,9 +236,12 @@ $$A \mod 3 = \overline{a_0...a_n} + 10a_{n+1} \mod 3$$
 $$A \mod 3 = \overline{a_0...a_n} + a_{n+1} +9a_{n+1} \mod 3$$
 Como $9a_{n+1} \mod 3 = 0$, então, utilizando a propriedade $P_n$, temos que:
 $$A \mod 3 = \overline{a_0...a_n} + a_{n+1} \mod 3 = a_0 + ... + a_n + a_{n+1} \mod 3$$
+\end{proof}
 
 
 \subsection*{1.5}
+\begin{proof}
+$ $\newline
 Caso Base: $n = 60 = 7\cdot7 + 11\cdot1 \therefore$ Satisfeito. 
 
 Hipótese indutiva: Supondo que para $n=k = a\cdot7 + b\dot11$, onde $a,b \in \mathbb{N}\cup\{0\}$
@@ -240,13 +260,41 @@ Logo, podemos fazer:
 $$k+1 =a\cdot7+b\cdot11+8\cdot11-3\cdot7 = (a+8)\cdot7 + (b-5)\cdot11 $$
 
 \end{itemize}
+\end{proof}
 
 \subsection*{1.6}
+\begin{proof}
+$ $\newline
+$F = Fibonacci \therefore F_3 = F_2 + F_1$, além disso, $F_1,F_2 = 1$
+
 Caso Base:
+\begin{itemize}
+\item Para $n=1$, $F_{1+k}=F_k\cdot F_2+F_1\cdot F_{k-1}=F_k\cdot1+1\cdot F_{k-1} = F_{k+1} \therefore$ Satisfeito.
 
-Hipótese indutiva:
+\item Para $n=2$, $F_{2+k}=F_k\cdot F_3+F_2\cdot F_{k-1}=F_k\cdot2+1\cdot F_{k-1} = F_k + F_k + F_{k-1} = F_k + F_{k+1} =F_{k+2} \therefore$ Satisfeito.
+\end{itemize}
 
-Passo de indução:
+Hipótese indutiva: Supondo que $F_{n+k} = F_k \cdot F_{n+1} + F_{k-1} \cdot F_n$ e que $F_{n+k-1} = F_k \cdot F_{n} + F_{k-1} \cdot F_{n-1}$
+
+Passo de indução: Sabemos que na sequência de Fibonacci $F{n+1+k} = F_{n+k} + F_{n-1+k}$, portanto,
+$$F_{n+1+k} = F_k \cdot F_{n+1} + F_{k-1} \cdot F_n + F_k \cdot F_{n} + F_{k-1} \cdot F_{n-1}$$
+$$F_{n+1+k} = F_k(F_{n+1}+F_{n})+F_{k-1}(F_n + F_{n-1}) = F_k\cdot F_{n+2}+F_{k-1}\cdot F_{n+1}$$
+
+\end{proof}
+
+\subsection*{1.7}
+\begin{proof}
+$ $\newline
+Caso Base: $n = 7$, temos $n! = 7! = 5040$ e $3^7 = 2187 \therefore$ Satisfeito para $n = 7$.
+
+Hipótese indutiva: Supondo que para $n=k, 3^k < k!$
+
+Passo de indução: Seja $n = k + 1$, $3^k < k!$
+, note que como $k>3$, temos que $k+1>3$
+
+$\therefore 3^{k+1}=3^k\cdot3 < k!\cdot(k+1)=(k+1)!$
+
+\end{proof}
 
 
 \section*{Questão 2}
