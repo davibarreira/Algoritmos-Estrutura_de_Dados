@@ -312,6 +312,26 @@ $$\frac{k(k-1)}{2}+k = \frac{k(k-1 + 2)}{2} = \frac{(k+1)(k+1 -1)}{2}$$
 
 \end{proof}
 
+\subsection*{1.9}
+\begin{proof}
+$ $\newline
+Caso Base: $n = 1$ temos que $2^1 - 1 = 1 \therefore$ Satisfeito.
+
+Hipótese indutiva: Supondo que para $n = k$ camadas temos $2^k -1$ vértices.
+
+Passo de indução: Adicionando uma nova camada às $k$ existentes, ficamos com a estrutura ilustrada abaixo.
+  \begin{figure}[!h]
+  \centering
+  \includegraphics[height=3cm]{Q1_9.png}
+  \end{figure}
+
+
+Assim, para $k$ camadas a quantidade de vértices era $2^k -1$, e ao adicionar uma nova camada temos
+$2(2^k - 1)+1$ vértices, como pode ser observado na figura acima. Portanto, para $k+1$ camadas, temos
+que a quantidade de vértices é $2^{k+1} - 1$.
+
+\end{proof}
+
 
 \section*{Questão 2}
 \section*{Questão 3}
