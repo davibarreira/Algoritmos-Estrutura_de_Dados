@@ -21,8 +21,8 @@ vector <T> insertion_sort(vector <T> a){
 		while(j >=0 and a[j]>cur){
 			a[j+1] = a[j];
             j      = j - 1;
+            a[j+1] = cur;
 		}
-        a[j+1] = cur;
 	}
     return a;
 }

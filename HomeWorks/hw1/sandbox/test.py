@@ -10,7 +10,7 @@ def insert_sort(a):
         while j >= 0 and a[j] > cur:
             a[j + 1] = a[j]
             j = j - 1
-        a[j + 1] = cur
+            a[j + 1] = cur
     return a
 
 
@@ -79,22 +79,22 @@ def main():
             start_time = time.time()
             sorted_a = insert_sort(a)
             t1 = time.time() - start_time
-            if not is_sorted(sorted_a):
-                print("ERROR")
+            if not is_sorted(a):
+                print("ERROR1")
 
             # # call merge_sort and  calculate the time
             start_time = time.time()
             sorted_a = merge_sort(a)
             t2 = time.time() - start_time
-            if not is_sorted(sorted_a):
-                print("ERROR")
+            if not is_sorted(a):
+                print("ERROR2")
 
             # # call quicksort and  calculate the time
             start_time = time.time()
             sorted_a = quicksort(a)
             t3 = time.time() - start_time
-            if not is_sorted(sorted_a):
-                print("ERROR")
+            if not is_sorted(a):
+                print("ERROR3")
 
             # print("%d %f %f" % (n, t2, t3))
             print("%d %f %f %f" % (n, t1, t2, t3))
