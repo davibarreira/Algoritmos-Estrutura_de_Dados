@@ -223,14 +223,14 @@ int	main()
             diff       = end_time - start_time;
             diff_msec  = chrono::duration_cast<chrono::milliseconds>(diff);
             float t3  = (float)diff_msec.count()/1000;
-            if (not is_sorted(v))
+            if (not is_sorted(v_sorted))
             {
                 cout << "ERROR" << endl;
             }
 
             cout << setprecision(8) << fixed;
             out  << n*min_size << "," << t1 << ","<< t2 << "," << t3 <<endl; 
-            cout << n << endl;
+            cout  << n*min_size << "," << t1 << ","<< t2 << "," << t3 <<endl; 
 
         }
 

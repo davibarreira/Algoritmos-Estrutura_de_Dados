@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.7.20)  21 JUL 2019 20:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.7.20)  21 JUL 2019 20:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **hw1.tex
 
-(/home/davi/Dropbox/FGV/EMAp/Algoritmos-Estruturas_de_Dados/HomeWorks/hw1/hw1.t
-ex
+(/home/davi/Dropbox/FGV/EMAp/EAP_Completo/Algoritmos-Estruturas_de_Dados/HomeWo
+rks/hw1/hw1.tex
 LaTeX2e <2017-04-15>
 Babel <3.18> and hyphenation patterns for 7 language(s) loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
@@ -593,8 +593,8 @@ Package: amsthm 2017/10/31 v2.20.4
 \thm@headsep=\skip73
 \dth@everypar=\toks29
 )
-(/home/davi/Dropbox/FGV/EMAp/Algoritmos-Estruturas_de_Dados/HomeWorks/hw1/hw1.a
-ux)
+(/home/davi/Dropbox/FGV/EMAp/EAP_Completo/Algoritmos-Estruturas_de_Dados/HomeWo
+rks/hw1/hw1.aux)
 \openout1 = `hw1.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
@@ -609,7 +609,8 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
 LaTeX Font Info:    ... okay on input line 32.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
 LaTeX Font Info:    ... okay on input line 32.
- (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count117
 \scratchdimen=\dimen134
@@ -717,76 +718,73 @@ Underfull \hbox (badness 10000) in paragraph at lines 191--192
 <Q1_9.png, id=43, 1413.28pt x 399.4925pt>
 File: Q1_9.png Graphic file (type png)
 <use Q1_9.png>
-Package pdftex.def Info: Q1_9.png  used on input line 321.
-(pdftex.def)             Requested size: 301.97313pt x 85.35826pt.
+Package pdftex.def Info: Q1_9.png  used on input line 319.
+(pdftex.def)             Requested size: 201.30823pt x 56.9055pt.
 <Q1_10.png, id=44, 246.9225pt x 309.155pt>
 File: Q1_10.png Graphic file (type png)
 <use Q1_10.png>
-Package pdftex.def Info: Q1_10.png  used on input line 344.
-(pdftex.def)             Requested size: 68.17328pt x 85.35826pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[7 </home/davi/Dropbox/FGV/EMAp/Algoritmos-Estruturas_de_Dados/HomeWorks/hw1/Q1
-_9.png>] [8 </home/davi/Dropbox/FGV/EMAp/Algoritmos-Estruturas_de_Dados/HomeWor
-ks/hw1/Q1_10.png>] [9]
+Package pdftex.def Info: Q1_10.png  used on input line 341.
+(pdftex.def)             Requested size: 56.81357pt x 71.13188pt.
+ [7 </home/davi/Dropbox/FGV/EMAp/EAP_Completo/Algoritmos-Estruturas_de_Dados/Ho
+meWorks/hw1/Q1_9.png> </home/davi/Dropbox/FGV/EMAp/EAP_Completo/Algoritmos-Estr
+uturas_de_Dados/HomeWorks/hw1/Q1_10.png>] [8] [9]
 <SortTime_Random.png, id=55, 867.24pt x 361.35pt>
 File: SortTime_Random.png Graphic file (type png)
 <use SortTime_Random.png>
-Package pdftex.def Info: SortTime_Random.png  used on input line 474.
+Package pdftex.def Info: SortTime_Random.png  used on input line 471.
 (pdftex.def)             Requested size: 375.80397pt x 142.26578pt.
 <SortTime_Ascending.png, id=57, 867.24pt x 361.35pt>
 File: SortTime_Ascending.png Graphic file (type png)
 <use SortTime_Ascending.png>
-Package pdftex.def Info: SortTime_Ascending.png  used on input line 477.
+Package pdftex.def Info: SortTime_Ascending.png  used on input line 474.
 (pdftex.def)             Requested size: 375.80397pt x 142.26578pt.
 <SortTime_Descending.png, id=58, 867.24pt x 361.35pt>
 File: SortTime_Descending.png Graphic file (type png)
 <use SortTime_Descending.png>
-Package pdftex.def Info: SortTime_Descending.png  used on input line 480.
+Package pdftex.def Info: SortTime_Descending.png  used on input line 477.
 (pdftex.def)             Requested size: 375.80397pt x 142.26578pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[10] [11 </home/davi/Dropbox/FGV/EMAp/Algoritmos-Estruturas_de_Dados/HomeWorks/
-hw1/SortTime_Random.png> </home/davi/Dropbox/FGV/EMAp/Algoritmos-Estruturas_de_
-Dados/HomeWorks/hw1/SortTime_Ascending.png> </home/davi/Dropbox/FGV/EMAp/Algori
-tmos-Estruturas_de_Dados/HomeWorks/hw1/SortTime_Descending.png>]
-(/home/davi/Dropbox/FGV/EMAp/Algoritmos-Estruturas_de_Dados/HomeWorks/hw1/hw1.a
-ux) ) 
+[10] [11 </home/davi/Dropbox/FGV/EMAp/EAP_Completo/Algoritmos-Estruturas_de_Dad
+os/HomeWorks/hw1/SortTime_Random.png> </home/davi/Dropbox/FGV/EMAp/EAP_Completo
+/Algoritmos-Estruturas_de_Dados/HomeWorks/hw1/SortTime_Ascending.png> </home/da
+vi/Dropbox/FGV/EMAp/EAP_Completo/Algoritmos-Estruturas_de_Dados/HomeWorks/hw1/S
+ortTime_Descending.png>]
+(/home/davi/Dropbox/FGV/EMAp/EAP_Completo/Algoritmos-Estruturas_de_Dados/HomeWo
+rks/hw1/hw1.aux) ) 
 Here is how much of TeX's memory you used:
  6510 strings out of 494847
- 91742 string characters out of 6179080
+ 91859 string characters out of 6179080
  170824 words of memory out of 5000000
  9716 multiletter control sequences out of 15000+600000
  13460 words of font info for 52 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
  41i,18n,35p,617b,468s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
-5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmtt8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/symbols/msbm10.pfb>
-Output written on /home/davi/Dropbox/FGV/EMAp/Algoritmos-Estruturas_de_Dados/Ho
-meWorks/hw1/hw1.pdf (11 pages, 393422 bytes).
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx1
+2.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/symbols/msbm10.pfb>
+Output written on /home/davi/Dropbox/FGV/EMAp/EAP_Completo/Algoritmos-Estrutura
+s_de_Dados/HomeWorks/hw1/hw1.pdf (11 pages, 393524 bytes).
 PDF statistics:
  137 PDF objects out of 1000 (max. 8388607)
  93 compressed objects within 1 object stream

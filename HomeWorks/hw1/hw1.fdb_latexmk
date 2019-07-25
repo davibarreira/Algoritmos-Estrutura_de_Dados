@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1563752279 "hw1.tex" "/home/davi/Dropbox/FGV/EMAp/Algoritmos-Estruturas_de_Dados/HomeWorks/hw1/hw1.pdf" "hw1" 1563752280
+["pdflatex"] 1563753081 "hw1.tex" "/home/davi/Dropbox/FGV/EMAp/EAP_Completo/Algoritmos-Estruturas_de_Dados/HomeWorks/hw1/hw1.pdf" "hw1" 1563753082
   "/etc/texmf/web2c/texmf.cnf" 1539878391 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/davi/Dropbox/FGV/EMAp/Algoritmos-Estruturas_de_Dados/HomeWorks/hw1/hw1.aux" 1563752279 1318 6c98d8fa19eb8ef2a7cc83a4952a083e ""
+  "/home/davi/Dropbox/FGV/EMAp/EAP_Completo/Algoritmos-Estruturas_de_Dados/HomeWorks/hw1/hw1.aux" 1563753082 1318 6c98d8fa19eb8ef2a7cc83a4952a083e ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1480098698 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1480098698 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -113,11 +113,13 @@
   "SortTime_Ascending.png" 1563660667 41409 3b966321f934bbec299489543dfd7375 ""
   "SortTime_Descending.png" 1563660598 40734 e9432a1c7c4aa67c4768eae3ebf2eeaf ""
   "SortTime_Random.png" 1563660596 40045 53899b45f17411b1fa6e5b2a265cafdb ""
-  "hw1.aux" 1563752279 1318 6c98d8fa19eb8ef2a7cc83a4952a083e ""
-  "hw1.tex" 1563752279 20004 8adcda3e97b16c6e0528d553ef37e158 ""
+  "hw1.aux" 1563753082 1318 6c98d8fa19eb8ef2a7cc83a4952a083e ""
+  "hw1.tex" 1563753081 19970 1fca9987b0ba8e1a4666709d3e1f4762 ""
   (generated)
   "/home/davi/Dropbox/FGV/EMAp/Algoritmos-Estruturas_de_Dados/HomeWorks/hw1/hw1.log"
   "/home/davi/Dropbox/FGV/EMAp/Algoritmos-Estruturas_de_Dados/HomeWorks/hw1/hw1.pdf"
   "hw1.pdf"
+  "/home/davi/Dropbox/FGV/EMAp/EAP_Completo/Algoritmos-Estruturas_de_Dados/HomeWorks/hw1/hw1.pdf"
+  "/home/davi/Dropbox/FGV/EMAp/EAP_Completo/Algoritmos-Estruturas_de_Dados/HomeWorks/hw1/hw1.log"
   "hw1.aux"
   "hw1.log"
