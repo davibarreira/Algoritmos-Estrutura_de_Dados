@@ -142,6 +142,24 @@ private:
     }
 };
 
+
+class RBTree: public BST
+{
+public:
+    // int a;
+    vector<int> v;
+    // RBTree(int m=0, vector<int> v_init = {}): a(m),v(v_init), BST()
+    RBTree(vector<int> v_init = {}): v(v_init), BST()
+    // RBTree(int m): a(m), BST()
+    {
+        for (auto values: v_init)
+        {
+            BST::insert(values);
+        }
+    }
+
+};
+
 // class teste
 // {
 // public:
@@ -175,6 +193,7 @@ int main() {
 
     bst.print();
 
+
     cout << "-----------------\n";
     // Teste Davi
     bst.remove(14);
@@ -190,12 +209,15 @@ int main() {
     bst.print();
 
     // Node n(1);
-    std::vector<int> v = {1,2,3};
-    int x=2;
-    cout << v[1] << endl;
+    // std::vector<int> v = {1,2,3};
+    // int x=2;
+    // cout << v[1] << endl;
 
 
 
+    RBTree tree({10,21,11,3});
+    // cout  << tree.a << endl;
+    tree.print();
     // int *p[2];
     // int a = 2;
     // p[0]=&a;
