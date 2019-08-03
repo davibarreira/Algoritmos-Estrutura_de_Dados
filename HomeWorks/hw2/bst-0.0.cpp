@@ -1,6 +1,15 @@
 #include <iostream>
 #include <iomanip>
 #include <vector>
+#include <initializer_list>
+
+
+//temp
+#include <array>
+#include <cstdlib>
+#include <cstdio>
+
+//temp
 
 using namespace std;
 
@@ -143,29 +152,75 @@ private:
 };
 
 
-class RBTree: public BST
-{
+// class RBTree: public BST
+// {
+// public:
+//     // RBTree(initializer_list<int> values);
+//     // int a;
+//     vector<int> v;
+//     RBTree(vector<int> v_init = {}): v(v_init), BST()
+//     // RBTree(int m): a(m), BST()
+//     {
+//         for (auto values: v_init)
+//         {
+//             BST::insert(values);
+//         }
+//     }
+
+// };
+
+
+
+template<typename T>
+class RBTree{
+protected:
+    Node *pRoot;
+    int length;
+
+
 public:
-    // int a;
-    vector<int> v;
-    // RBTree(int m=0, vector<int> v_init = {}): a(m),v(v_init), BST()
-    RBTree(vector<int> v_init = {}): v(v_init), BST()
-    // RBTree(int m): a(m), BST()
-    {
-        for (auto values: v_init)
-        {
-            BST::insert(values);
-        }
-    }
+    // Constructor with Initialization List
+    RBTree(initializer_list<T> values);
+
+    // Constructor with Variadic Templates
+    template<typename ...Ts>
+    RBTree(Ts... ts);
+
+private:
+    // The base case
+    void process() {} // end recursion
+
+    // The recursive case
+    template <typename... Ts>
+    void process(T t, Ts... ts);
 
 };
 
-// class teste
-// {
-// public:
-//    int at; 
-    
-// };
+// Constructor with Initialization List
+template<typename T>
+RBTree<T>::RBTree(initializer_list<T> values):pRoot(NULL), length(0) {
+    for (auto val: values) {
+        this->push_back(val);
+    }
+}
+
+// Constructor with Variadic Templates
+template<typename T>
+template<typename ...Ts>
+RBTree<T>::RBTree(Ts... ts): pRoot(NULL), length(0) {
+    process(ts...);
+}
+
+
+// The recursive case
+template<typename T>
+template <typename... Ts>
+void RBTree<T>::process(T t, Ts... ts) {
+    this->push_back(t);
+    this->process(ts...);
+}
+
+
 
 
 void test(int **&pp) {
@@ -173,6 +228,7 @@ void test(int **&pp) {
 
 }
 int main() {
+
     BST bst;
     bst.insert(6);
     bst.insert(4);
@@ -207,63 +263,6 @@ int main() {
 
     bst.remove(6);
     bst.print();
-
-    // Node n(1);
-    // std::vector<int> v = {1,2,3};
-    // int x=2;
-    // cout << v[1] << endl;
-
-
-
-    RBTree tree({10,21,11,3});
-    // cout  << tree.a << endl;
-    tree.print();
-    // int *p[2];
-    // int a = 2;
-    // p[0]=&a;
-    // cout << p << endl;
-    // cout << *p[0] << endl;
-    // cout << p[1] << endl;
-
-    // teste T;
-    // T.at = 3;
-
-
-
-    // teste *t = new teste();
-
-    // t->at = 3;
-
-    // for (int i = 0; i < 4; ++i)
-    // {
-    //     T.at  = T.at + 1;
-    //     t->at = t->at +1;
-    // }
-    // cout << T.at << endl;
-    // cout << t->at << endl;
-
-
-    // delete t;
-
-
-    // int **pp;
-    // int *p;
-    // int a = 2;
-
-
-    // p  = &a;
-    // pp = &p; 
-    // cout << a <<endl;
-    // cout << &a <<endl;
-    // cout << &p <<endl;
-    // cout << p <<endl;
-    // cout << *p <<endl;
-
-    // cout << &pp <<endl;
-    // cout << pp <<endl;
-    // cout << endl;
-    // test(pp);
-
 
 
 
