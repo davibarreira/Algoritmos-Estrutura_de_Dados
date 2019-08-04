@@ -120,8 +120,17 @@ private:
             cout << "CASO 1"<<endl;
             return;
         }
+
         grand_p = pai->parent; 
-        uncle   = grand_p->pChild[1];
+        // Node esta na esquerda do grand_p
+        if (grand_p->data > p->data)
+        {
+            uncle = grand_p->pChild[1];
+        }
+        else{
+            uncle = grand_p->pChild[0];
+        }
+
         // aqui busca se uncle não é NIL e não é vermelho, ou seja, se nao eh preto
         if ((uncle) && (uncle->color=='r'))
         {
@@ -317,7 +326,7 @@ void test(int **&pp) {
 }
 int main() {
 
-    RBTree tree(8,5,12,3);
+    RBTree tree(8,5,12,15);
     // tree.rb_insert(11);
     // tree.rb_insert(9);
     tree.rb_print();
