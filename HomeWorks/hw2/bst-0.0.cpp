@@ -172,7 +172,7 @@ private:
 
 
 template<typename T>
-class RBTree{
+class RBTree: public BST{
 protected:
     Node *pRoot;
     int length;
@@ -198,16 +198,16 @@ private:
 
 // Constructor with Initialization List
 template<typename T>
-RBTree<T>::RBTree(initializer_list<T> values):pRoot(NULL), length(0) {
+RBTree<T>::RBTree(initializer_list<T> values):BST(), pRoot(NULL), length(0) {
     for (auto val: values) {
-        this->push_back(val);
+        BST::insert(val);
     }
 }
 
 // Constructor with Variadic Templates
 template<typename T>
 template<typename ...Ts>
-RBTree<T>::RBTree(Ts... ts): pRoot(NULL), length(0) {
+RBTree<T>::RBTree(Ts... ts): BST(), pRoot(NULL), length(0) {
     process(ts...);
 }
 
@@ -216,7 +216,7 @@ RBTree<T>::RBTree(Ts... ts): pRoot(NULL), length(0) {
 template<typename T>
 template <typename... Ts>
 void RBTree<T>::process(T t, Ts... ts) {
-    this->push_back(t);
+    BST::insert(t);
     this->process(ts...);
 }
 
@@ -228,6 +228,9 @@ void test(int **&pp) {
 
 }
 int main() {
+
+    RBTree<int> tree(1,2,3,4);
+    tree.print();
 
     BST bst;
     bst.insert(6);
