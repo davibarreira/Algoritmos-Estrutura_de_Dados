@@ -171,7 +171,7 @@ private:
 
 
 
-template<typename T>
+// template<typename T>
 class RBTree: public BST{
 protected:
     Node *pRoot;
@@ -180,7 +180,8 @@ protected:
 
 public:
     // Constructor with Initialization List
-    RBTree(initializer_list<T> values);
+    // RBTree(initializer_list<T> values);
+    RBTree(initializer_list<int> values);
 
     // Constructor with Variadic Templates
     template<typename ...Ts>
@@ -192,30 +193,32 @@ private:
 
     // The recursive case
     template <typename... Ts>
-    void process(T t, Ts... ts);
+    void process(int t, Ts... ts);
 
 };
 
 // Constructor with Initialization List
-template<typename T>
-RBTree<T>::RBTree(initializer_list<T> values):BST(), pRoot(NULL), length(0) {
+// template<typename T>
+// RBTree<T>::RBTree(initializer_list<T> values):BST(), pRoot(NULL), length(0) {
+RBTree::RBTree(initializer_list<int> values):BST(), pRoot(NULL), length(0) {
     for (auto val: values) {
         BST::insert(val);
     }
 }
 
 // Constructor with Variadic Templates
-template<typename T>
+// template<typename T>
 template<typename ...Ts>
-RBTree<T>::RBTree(Ts... ts): BST(), pRoot(NULL), length(0) {
+// RBTree<T>::RBTree(Ts... ts): BST(), pRoot(NULL), length(0) {
+RBTree::RBTree(Ts... ts): BST(), pRoot(NULL), length(0) {
     process(ts...);
 }
 
 
 // The recursive case
-template<typename T>
+// template<typename T>
 template <typename... Ts>
-void RBTree<T>::process(T t, Ts... ts) {
+void RBTree::process(int t, Ts... ts) {
     BST::insert(t);
     this->process(ts...);
 }
@@ -229,7 +232,7 @@ void test(int **&pp) {
 }
 int main() {
 
-    RBTree<int> tree(1,2,3,4);
+    RBTree tree(1,2,3,4);
     tree.print();
 
     BST bst;
