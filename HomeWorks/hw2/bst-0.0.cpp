@@ -91,9 +91,12 @@ public:
         Node **parent;
         // o find busca se o valor x ja esta na arvore. Se nao estiver,
         // o p aponta para um novo ponteiro de nodes que aponta para um node com valor x
+        parent = &pRoot;
         if (!rb_find(x, p, parent)) {
             *p = new Node(x,'r');
+
             (*p)->parent = *parent;
+
             //recolor()
         }
     }
@@ -248,7 +251,7 @@ RBTree::RBTree(Ts... ts): BST() {
 // template<typename T>
 template <typename... Ts>
 void RBTree::process(int t, Ts... ts) {
-    BST::insert(t);
+    BST::rb_insert(t);
     this->process(ts...);
 }
 
@@ -261,8 +264,8 @@ void test(int **&pp) {
 }
 int main() {
 
-    RBTree tree(6,1,7,3);
-    tree.rb_insert(10);
+    RBTree tree(4,3,2,1,5,10);
+    // tree.rb_insert(10);
     tree.rb_print();
 
     // BST bst;
