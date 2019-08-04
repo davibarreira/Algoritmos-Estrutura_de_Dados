@@ -326,7 +326,7 @@ void test(int **&pp) {
 }
 int main() {
 
-    RBTree tree(8,5,12,15);
+    RBTree tree(5,2,10,8,12,6,9);
     // tree.rb_insert(11);
     // tree.rb_insert(9);
     tree.rb_print();
