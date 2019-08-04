@@ -16,6 +16,8 @@ using namespace std;
 struct Node {
     int data;
     char color;
+
+    Node *parent;
     // Declara um vetor 2 ponteiro
     Node *pChild[2];
 
@@ -24,7 +26,7 @@ struct Node {
     //  Null <- pChild__|      |__pChild -> Null
     //
     Node(int x, char c):data(x), color(c) {
-        pChild[0] = pChild[1] = nullptr;
+        parent = pChild[0] = pChild[1] = nullptr;
     }
 };
 
@@ -84,7 +86,38 @@ public:
         cout << endl;
     }
 
+    void rb_insert(int x) {
+        Node **p;
+        Node **parent;
+        // o find busca se o valor x ja esta na arvore. Se nao estiver,
+        // o p aponta para um novo ponteiro de nodes que aponta para um node com valor x
+        if (!rb_find(x, p, parent)) {
+            *p = new Node(x,'r');
+            (*p)->parent = *parent;
+            //recolor()
+        }
+    }
+
+    void rb_print() {
+        rb_print(pRoot);
+        cout << endl;
+    }
+
 private:
+
+    bool rb_find(int x, Node **&p, Node **&parent) {
+
+        p = &pRoot;
+        while(*p) {
+            if ((*p)->data==x) return true;
+
+            parent = p;
+
+            p = &((*p)->pChild[(*p)->data < x]);
+        }
+        return false;
+    }
+
     // Utilizar o & no argumento da funcao eh so um artificio para poder fazer p igual a *p
     // ou seja, na funcao abaixo, poderiamos fazer bool find(int x, Node **p){*p = &pRoot}, e seria igual
     // porem, com &p, podemos so usar p inves de *p (menos verborragico)
@@ -99,6 +132,8 @@ private:
 
             // p recebe o node filho a direita ou a esquerda dependendo se o dado do node atual eh < que x
             // note que se data < x, retorna true = 1, ou seja, node da direita. Do contrario, 0, node da esquerda.
+            // se o pai do node for nulo
+
             p = &((*p)->pChild[(*p)->data < x]);
         }
 
@@ -150,14 +185,24 @@ private:
             print(p->pChild[0], indent+6);
         }
     }
+
+    void rb_print(Node *p, int indent=0) {
+        if (p) {
+            rb_print(p->pChild[1], indent+6);
+            cout << setw(indent) << ' ';
+            if (p->parent){
+                cout<<p->parent->data;
+            }
+            cout<< p->data << p->color<<endl;
+            rb_print(p->pChild[0], indent+6);
+        }
+    }
 };
 
 
 
 // template<typename T>
 class RBTree: public BST{
-protected:
-
 public:
     // Constructor with Initialization List
     // RBTree(initializer_list<T> values);
@@ -168,7 +213,7 @@ public:
     RBTree(Ts... ts);
 
     void rb_insert(int x){
-        BST::insert(x);
+        BST::rb_insert(x);
         // insercao de cor for feita diretamente no insert na BST
     }
 
@@ -187,7 +232,7 @@ private:
 // RBTree<T>::RBTree(initializer_list<T> values):BST(), pRoot(NULL), length(0) {
 RBTree::RBTree(initializer_list<int> values):BST() {
     for (auto val: values) {
-        BST::insert(val);
+        BST::rb_insert(val);
     }
 }
 
@@ -216,45 +261,68 @@ void test(int **&pp) {
 }
 int main() {
 
-    RBTree tree(6,1,7,4,3);
+    RBTree tree(6,1,7,3);
     tree.rb_insert(10);
-    tree.print();
+    tree.rb_print();
 
-    BST bst;
-    bst.insert(6);
-    bst.insert(4);
-    bst.insert(7);
-    bst.insert(2);
-    bst.insert(5);
-    bst.insert(1);
-    bst.insert(3);
+    // BST bst;
+    // bst.insert(6);
+    // bst.insert(4);
+    // bst.insert(7);
+    // bst.insert(2);
+    // bst.insert(5);
+    // bst.insert(1);
+    // bst.insert(3);
 
-    // Teste Davi
-    bst.insert(14);
-    bst.insert(18);
-    bst.insert(16);
-    bst.insert(15);
-    bst.insert(20);
-    bst.insert(9);
-    //
+    // // Teste Davi
+    // bst.insert(14);
+    // bst.insert(18);
+    // bst.insert(16);
+    // bst.insert(15);
+    // bst.insert(20);
+    // bst.insert(9);
+    // //
 
-    bst.print();
+    // bst.print();
 
 
-    cout << "-----------------\n";
-    // Teste Davi
-    bst.remove(14);
-    //
+    // cout << "-----------------\n";
+    // // Teste Davi
+    // bst.remove(14);
+    // //
 
-    bst.remove(4);
-    bst.print();
+    // bst.remove(4);
+    // bst.print();
 
-    bst.remove(3);
-    bst.print();
+    // bst.remove(3);
+    // bst.print();
 
-    bst.remove(6);
-    bst.print();
+    // bst.remove(6);
+    // bst.print();
 
+
+    // Node **pp;
+    // Node *p;
+    // Node *pc;
+    // Node n(2,'r');
+    // Node n2(3,'r');
+    // p = &n;
+    // pc= p;
+    // cout << p << endl;
+    // cout << pc << endl;
+    // p->pChild[1] = &n2;
+    // p = p->pChild[1];
+    // p->parent = pc;
+    // cout << p->data << endl;
+    // cout << pc->data << endl;
+    // cout << p->parent->data << endl;
+
+    // pp = &p;
+    // p = &n;
+    // p->pChild[1] = &n2;
+    // pc = p->pChild[1];
+    // cout << *pp << endl;
+    // cout << p->pChild[1]->data << endl;
 
 
     return 0;
