@@ -97,7 +97,7 @@ public:
 
             (*p)->parent = *parent;
 
-            //recolor()
+            recolor(*p);
         }
     }
 
@@ -107,6 +107,61 @@ public:
     }
 
 private:
+
+    void recolor(Node *&p){
+        Node *pai;
+        Node *grand_p;
+        Node *uncle;
+        pai = p->parent;
+        cout << "NODE "<< p->data<<" INSERIDO"<<">>";
+
+        if (pai->color=='b')
+        {
+            cout << "CASO 1"<<endl;
+            return;
+        }
+        grand_p = pai->parent; 
+        uncle   = grand_p->pChild[1];
+        // aqui busca se uncle não é NIL e não é vermelho, ou seja, se nao eh preto
+        if ((uncle) && (uncle->color=='r'))
+        {
+            if (uncle->color=='r')
+            {
+                cout << "CASO 2"<<endl;
+                pai->color = 'b';
+                uncle->color  = 'b';
+                grand_p->color= 'r';
+
+                recolor(grand_p);
+            }
+            // cout << "CASO INCORRETO"<<endl;
+            // cout<<"uncle"<< uncle->data <<endl;
+        }
+        else{
+            if (pai == grand_p)
+            {
+                pai->color  = 'b';
+                grand_p->color = 'b';
+                cout << "RAIZ"<<endl;
+                return;
+            }
+            cout << "CASO 3"<<endl;
+
+            pai->color  = 'b';
+            grand_p->color = 'r';
+
+            //right_rotate
+            // pai->parent     = grand_p->parent;
+            // grand_p->parent = pai;
+
+            // grand_p->pChild[0] = pai->pChild[1];
+            // pai->pChild[1] = grand_p;
+            // pai->pChild[1]  = grand_p;
+        }
+        // }
+        // return;
+    }
+
 
     bool rb_find(int x, Node **&p, Node **&parent) {
 
@@ -193,9 +248,7 @@ private:
         if (p) {
             rb_print(p->pChild[1], indent+6);
             cout << setw(indent) << ' ';
-            if (p->parent){
-                cout<<p->parent->data;
-            }
+            cout<<p->parent->data<<"/";
             cout<< p->data << p->color<<endl;
             rb_print(p->pChild[0], indent+6);
         }
@@ -264,8 +317,9 @@ void test(int **&pp) {
 }
 int main() {
 
-    RBTree tree(4,3,2,1,5,10);
-    // tree.rb_insert(10);
+    RBTree tree(8,5,12,3);
+    // tree.rb_insert(11);
+    // tree.rb_insert(9);
     tree.rb_print();
 
     // BST bst;
