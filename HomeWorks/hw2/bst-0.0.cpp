@@ -15,6 +15,7 @@ using namespace std;
 
 struct Node {
     int data;
+    char color;
     // Declara um vetor 2 ponteiro
     Node *pChild[2];
 
@@ -22,7 +23,7 @@ struct Node {
     //                   _Node_ 
     //  Null <- pChild__|      |__pChild -> Null
     //
-    Node(int x):data(x) {
+    Node(int x, char c):data(x), color(c) {
         pChild[0] = pChild[1] = nullptr;
     }
 };
@@ -67,7 +68,7 @@ public:
         // o find busca se o valor x ja esta na arvore. Se nao estiver,
         // o p aponta para um novo ponteiro de nodes que aponta para um node com valor x
         if (!find(x, p)) {
-            *p = new Node(x);
+            *p = new Node(x,'r');
         }
     }
     void remove(int x) {
@@ -152,31 +153,10 @@ private:
 };
 
 
-// class RBTree: public BST
-// {
-// public:
-//     // RBTree(initializer_list<int> values);
-//     // int a;
-//     vector<int> v;
-//     RBTree(vector<int> v_init = {}): v(v_init), BST()
-//     // RBTree(int m): a(m), BST()
-//     {
-//         for (auto values: v_init)
-//         {
-//             BST::insert(values);
-//         }
-//     }
-
-// };
-
-
 
 // template<typename T>
 class RBTree: public BST{
 protected:
-    Node *pRoot;
-    int length;
-
 
 public:
     // Constructor with Initialization List
@@ -186,6 +166,11 @@ public:
     // Constructor with Variadic Templates
     template<typename ...Ts>
     RBTree(Ts... ts);
+
+    void rb_insert(int x){
+        BST::insert(x);
+        // insercao de cor for feita diretamente no insert na BST
+    }
 
 private:
     // The base case
@@ -200,7 +185,7 @@ private:
 // Constructor with Initialization List
 // template<typename T>
 // RBTree<T>::RBTree(initializer_list<T> values):BST(), pRoot(NULL), length(0) {
-RBTree::RBTree(initializer_list<int> values):BST(), pRoot(NULL), length(0) {
+RBTree::RBTree(initializer_list<int> values):BST() {
     for (auto val: values) {
         BST::insert(val);
     }
@@ -210,10 +195,9 @@ RBTree::RBTree(initializer_list<int> values):BST(), pRoot(NULL), length(0) {
 // template<typename T>
 template<typename ...Ts>
 // RBTree<T>::RBTree(Ts... ts): BST(), pRoot(NULL), length(0) {
-RBTree::RBTree(Ts... ts): BST(), pRoot(NULL), length(0) {
+RBTree::RBTree(Ts... ts): BST() {
     process(ts...);
 }
-
 
 // The recursive case
 // template<typename T>
@@ -232,7 +216,8 @@ void test(int **&pp) {
 }
 int main() {
 
-    RBTree tree(1,2,3,4);
+    RBTree tree(6,1,7,4,3);
+    tree.rb_insert(10);
     tree.print();
 
     BST bst;
