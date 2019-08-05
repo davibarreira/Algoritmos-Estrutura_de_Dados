@@ -156,15 +156,17 @@ private:
             }
             cout << "CASO 3"<<endl;
 
-            pai->color  = 'b';
-            grand_p->color = 'r';
+            // pai->color  = 'b';
+            // grand_p->color = 'r';
 
             //right_rotate
         if (pai->data > p->data)
         {
+            cout << "NODE" << p->data << " RIGHT_ROTATE"<<endl;
             right_rotate(p);
         }
         else{
+            cout << "NODE" << p->data << " LEFT_ROTATE"<<endl;
             left_rotate(p);
         }
             // pai->parent     = grand_p->parent;
@@ -200,18 +202,19 @@ private:
         pai = p->parent;
         grand_p = pai->parent; 
 
-        // pai->pChild[0]->parent = grand_p;
-        // grand_p->pChild[1] = pai->pChild[0];
-        // pai->pChild[0] = grand_p;
+        pai->pChild[0]->parent = grand_p;
+        grand_p->pChild[1] = pai->pChild[0];
         if (grand_p->parent == grand_p){
-            // pai->parent = pai;
+            pai->parent = pai;
+            pRoot = pai;
             cout << "ROOT"<<endl;
         }
-        // else{
-        //     pai->parent = grand_p->parent;
-        // }
-        // grand_p->parent = pai;
-        // recolor(pai);
+        else{
+            pai->parent = grand_p->parent;
+        }
+        pai->pChild[0] = grand_p;
+        grand_p->parent = pai;
+        // recolor(grand_p);
     }
 
 
@@ -371,6 +374,7 @@ void test(int **&pp) {
 }
 int main() {
 
+    // RBTree tree(48,38,31);
     RBTree tree(5,2,10,8,12,6,9,7);
     // tree.rb_insert(11);
     // tree.rb_insert(9);
