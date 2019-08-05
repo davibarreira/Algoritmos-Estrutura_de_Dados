@@ -86,6 +86,7 @@ public:
         cout << endl;
     }
 
+    // Funcao criada especificamente para 
     void rb_insert(int x) {
         Node **p;
         Node **parent;
@@ -143,8 +144,6 @@ private:
 
                 recolor(grand_p);
             }
-            // cout << "CASO INCORRETO"<<endl;
-            // cout<<"uncle"<< uncle->data <<endl;
         }
         else{
             if (pai == grand_p)
@@ -155,9 +154,6 @@ private:
                 return;
             }
             cout << "CASO 3"<<endl;
-
-            // pai->color  = 'b';
-            // grand_p->color = 'r';
 
             //right_rotate
         if (pai->data > p->data)
@@ -186,15 +182,7 @@ private:
             }
 
         }
-            // pai->parent     = grand_p->parent;
-            // grand_p->parent = pai;
-
-            // grand_p->pChild[0] = pai->pChild[1];
-            // pai->pChild[1] = grand_p;
-            // pai->pChild[1]  = grand_p;
         }
-        // }
-        // return;
     }
     void left_rotate_zig(Node *p){
         Node *pai;
@@ -208,7 +196,6 @@ private:
         {
             p->pChild[0]->parent = pai;
         }
-        // p->pChild[1]->parent = pai;
         pai->pChild[1] = p->pChild[0];
         p->pChild[0]   = pai;
         grand_p->pChild[0] = p;
@@ -228,7 +215,6 @@ private:
         {
             p->pChild[1]->parent = pai;
         }
-        // p->pChild[1]->parent = pai;
         pai->pChild[0] = p->pChild[1];
         p->pChild[1]   = pai;
         grand_p->pChild[1] = p;
@@ -261,7 +247,6 @@ private:
         temp = grand_p->color;
         grand_p->color = pai->color;
         pai->color = temp;
-        // recolor(grand_p);
     }
 
     void right_rotate_line(Node *&p){
@@ -289,7 +274,6 @@ private:
         temp = grand_p->color;
         grand_p->color = pai->color;
         pai->color = temp;
-        // recolor(grand_p);
     }
 
 
@@ -449,91 +433,11 @@ void test(int **&pp) {
 }
 int main() {
 
-    // RBTree tree(48,38,31);
-    // RBTree tree(5,2,10,8,12,6,9,7);
-    // RBTree tree(5,2,6,3);
-    // tree.rb_insert(11);
-    // tree.rb_insert(9);
-    // RBTree tree(1,2,3);
-    // RBTree tree(1,2,3,4,5);
-    // RBTree tree(41,38,31,12,11);
-    // RBTree tree(41,38,31,12,19);
-    // RBTree tree(41,38,31,12,19,8);
-
-    // RBTree tree(1,2,3,8,5);
-    RBTree tree(1,2,3,8,5);
-    // tree.rb_insert(5);
+    RBTree tree(41,38,31,12,19,8,10,11,15,300,12,20);
     tree.rb_print();
 
-    // BST bst;
-    // bst.insert(6);
-    // bst.insert(4);
-    // bst.insert(7);
-    // bst.insert(2);
-    // bst.insert(5);
-    // bst.insert(1);
-    // bst.insert(3);
-
-    // // Teste Davi
-    // bst.insert(14);
-    // bst.insert(18);
-    // bst.insert(16);
-    // bst.insert(15);
-    // bst.insert(20);
-    // bst.insert(9);
-    // //
-
-    // bst.print();
-
-
-    // cout << "-----------------\n";
-    // // Teste Davi
-    // bst.remove(14);
-    // //
-
-    // bst.remove(4);
-    // bst.print();
-
-    // bst.remove(3);
-    // bst.print();
-
-    // bst.remove(6);
-    // bst.print();
-
-
-    // Node **pp;
-    // Node *p1;
-    // Node *p2;
-    // // Node *pc;
-    // Node n(2,'r');
-    // Node n2(3,'r');
-    // p1 = &n;
-    // p1->pChild[1] = &n2;
-    // p2 = p1->pChild[1];
-    // cout << p1->data << endl;
-    // cout << p1->pChild[1]->data << endl;
-    // cout << p2->data<<endl;
-    // p1->pChild[1] = p2->pChild[0];
-    // p2->pChild[0] = p1;
-    // cout << p1->data << endl;
-    // cout << p2->data << endl;
-
-    // pc= p;
-    // cout << p << endl;
-    // cout << pc << endl;
-    // p->pChild[1] = &n2;
-    // p = p->pChild[1];
-    // p->parent = pc;
-    // cout << p->data << endl;
-    // cout << pc->data << endl;
-    // cout << p->parent->data << endl;
-
-    // pp = &p;
-    // p = &n;
-    // p->pChild[1] = &n2;
-    // pc = p->pChild[1];
-    // cout << *pp << endl;
-    // cout << p->pChild[1]->data << endl;
+    tree = RBTree(5,2,10,8,12,6,9,7,20,22,1,60,50,40);
+    tree.rb_print();
 
 
     return 0;
