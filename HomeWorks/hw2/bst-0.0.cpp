@@ -160,6 +160,13 @@ private:
             grand_p->color = 'r';
 
             //right_rotate
+        if (pai->data > p->data)
+        {
+            right_rotate(p);
+        }
+        else{
+            left_rotate(p);
+        }
             // pai->parent     = grand_p->parent;
             // grand_p->parent = pai;
 
@@ -170,6 +177,44 @@ private:
         // }
         // return;
     }
+
+    void right_rotate(Node *&p){
+        Node *pai;
+        Node *grand_p;
+        pai = p->parent;
+        grand_p = pai->parent; 
+
+        p->parent      = grand_p;
+        pai->parent    = p;
+        p->pChild[1]->parent = pai;
+        pai->pChild[0] = p->pChild[1];
+        p->pChild[1]   = pai;
+        grand_p->pChild[1] = p;
+        cout << pai->data<<endl;
+        recolor(pai);
+    }
+
+    void left_rotate(Node *&p){
+        Node *pai;
+        Node *grand_p;
+        pai = p->parent;
+        grand_p = pai->parent; 
+
+        // pai->pChild[0]->parent = grand_p;
+        // grand_p->pChild[1] = pai->pChild[0];
+        // pai->pChild[0] = grand_p;
+        if (grand_p->parent == grand_p){
+            // pai->parent = pai;
+            cout << "ROOT"<<endl;
+        }
+        // else{
+        //     pai->parent = grand_p->parent;
+        // }
+        // grand_p->parent = pai;
+        // recolor(pai);
+    }
+
+
 
 
     bool rb_find(int x, Node **&p, Node **&parent) {
@@ -326,7 +371,7 @@ void test(int **&pp) {
 }
 int main() {
 
-    RBTree tree(5,2,10,8,12,6,9);
+    RBTree tree(5,2,10,8,12,6,9,7);
     // tree.rb_insert(11);
     // tree.rb_insert(9);
     tree.rb_print();
