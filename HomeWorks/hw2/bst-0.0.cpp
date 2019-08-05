@@ -204,7 +204,11 @@ private:
 
         p->parent      = grand_p;
         pai->parent    = p;
-        p->pChild[0]->parent = pai;
+        if (p->pChild[0])
+        {
+            p->pChild[0]->parent = pai;
+        }
+        // p->pChild[1]->parent = pai;
         pai->pChild[1] = p->pChild[0];
         p->pChild[0]   = pai;
         grand_p->pChild[0] = p;
@@ -220,7 +224,11 @@ private:
 
         p->parent      = grand_p;
         pai->parent    = p;
-        p->pChild[1]->parent = pai;
+        if (p->pChild[1])
+        {
+            p->pChild[1]->parent = pai;
+        }
+        // p->pChild[1]->parent = pai;
         pai->pChild[0] = p->pChild[1];
         p->pChild[1]   = pai;
         grand_p->pChild[1] = p;
@@ -246,6 +254,7 @@ private:
         }
         else{
             pai->parent = grand_p->parent;
+            grand_p->parent->pChild[1] = pai;
         }
         pai->pChild[0] = grand_p;
         grand_p->parent = pai;
@@ -273,6 +282,7 @@ private:
         }
         else{
             pai->parent = grand_p->parent;
+            grand_p->parent->pChild[0] = pai;
         }
         pai->pChild[1] = grand_p;
         grand_p->parent = pai;
@@ -439,11 +449,16 @@ void test(int **&pp) {
 }
 int main() {
 
-    RBTree tree(48,38,31);
+    // RBTree tree(48,38,31);
     // RBTree tree(5,2,10,8,12,6,9,7);
     // RBTree tree(5,2,6,3);
     // tree.rb_insert(11);
     // tree.rb_insert(9);
+    // RBTree tree(1,2,3);
+    RBTree tree(1,2,3,4,5);
+    // RBTree tree(41,38,31,12,11);
+    // RBTree tree(41,38,31,12,19);
+    // RBTree tree(41,38,31,12,19,8);
     tree.rb_print();
 
     // BST bst;
