@@ -197,6 +197,7 @@ private:
     }
 
     void left_rotate(Node *&p){
+        char temp;
         Node *pai;
         Node *grand_p;
         pai = p->parent;
@@ -214,6 +215,9 @@ private:
         }
         pai->pChild[0] = grand_p;
         grand_p->parent = pai;
+        temp = grand_p->color;
+        grand_p->color = pai->color;
+        pai->color = temp;
         // recolor(grand_p);
     }
 
@@ -376,6 +380,7 @@ int main() {
 
     // RBTree tree(48,38,31);
     RBTree tree(5,2,10,8,12,6,9,7);
+    // RBTree tree(5,2,6,3);
     // tree.rb_insert(11);
     // tree.rb_insert(9);
     tree.rb_print();
