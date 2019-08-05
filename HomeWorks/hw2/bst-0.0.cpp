@@ -162,12 +162,29 @@ private:
             //right_rotate
         if (pai->data > p->data)
         {
-            cout << "NODE" << p->data << " RIGHT_ROTATE"<<endl;
-            right_rotate(p);
+            if (pai->data > grand_p->data)
+            {
+                cout << "NODE" << p->data << " RIGHT_ROTATE_ZIG"<<endl;
+                right_rotate_zig(p);
+            }
+            else{
+
+                cout << "NODE" << p->data << " RIGHT_ROTATE_LINE"<<endl;
+                right_rotate_line(p);
+
+            }
         }
         else{
-            cout << "NODE" << p->data << " LEFT_ROTATE"<<endl;
-            left_rotate(p);
+            if (pai->data > grand_p->data)
+            {
+                cout << "NODE" << p->data << " LEFT_ROTATE_LINE"<<endl;
+                left_rotate_line(p);
+            }
+            else{
+                cout << "NODE" << p->data << " LEFT_ROTATE_ZIG"<<endl;
+                left_rotate_zig(p);
+            }
+
         }
             // pai->parent     = grand_p->parent;
             // grand_p->parent = pai;
@@ -179,8 +196,23 @@ private:
         // }
         // return;
     }
+    void left_rotate_zig(Node *&p){
+        Node *pai;
+        Node *grand_p;
+        pai = p->parent;
+        grand_p = pai->parent; 
 
-    void right_rotate(Node *&p){
+        p->parent      = grand_p;
+        pai->parent    = p;
+        p->pChild[0]->parent = pai;
+        pai->pChild[1] = p->pChild[0];
+        p->pChild[0]   = pai;
+        grand_p->pChild[0] = p;
+        cout << pai->data<<endl;
+        recolor(pai);
+    }
+
+    void right_rotate_zig(Node *&p){
         Node *pai;
         Node *grand_p;
         pai = p->parent;
@@ -196,14 +228,16 @@ private:
         recolor(pai);
     }
 
-    void left_rotate(Node *&p){
+    void left_rotate_line(Node *&p){
         char temp;
         Node *pai;
         Node *grand_p;
         pai = p->parent;
         grand_p = pai->parent; 
 
-        pai->pChild[0]->parent = grand_p;
+        if(pai->pChild[0]){
+            pai->pChild[0]->parent = grand_p;
+        }
         grand_p->pChild[1] = pai->pChild[0];
         if (grand_p->parent == grand_p){
             pai->parent = pai;
@@ -214,6 +248,33 @@ private:
             pai->parent = grand_p->parent;
         }
         pai->pChild[0] = grand_p;
+        grand_p->parent = pai;
+        temp = grand_p->color;
+        grand_p->color = pai->color;
+        pai->color = temp;
+        // recolor(grand_p);
+    }
+
+    void right_rotate_line(Node *&p){
+        char temp;
+        Node *pai;
+        Node *grand_p;
+        pai = p->parent;
+        grand_p = pai->parent; 
+
+        if(pai->pChild[1]){
+            pai->pChild[1]->parent = grand_p;
+        }
+        grand_p->pChild[0] = pai->pChild[1];
+        if (grand_p->parent == grand_p){
+            pai->parent = pai;
+            pRoot = pai;
+            cout << "ROOT"<<endl;
+        }
+        else{
+            pai->parent = grand_p->parent;
+        }
+        pai->pChild[1] = grand_p;
         grand_p->parent = pai;
         temp = grand_p->color;
         grand_p->color = pai->color;
@@ -378,8 +439,8 @@ void test(int **&pp) {
 }
 int main() {
 
-    // RBTree tree(48,38,31);
-    RBTree tree(5,2,10,8,12,6,9,7);
+    RBTree tree(48,38,31);
+    // RBTree tree(5,2,10,8,12,6,9,7);
     // RBTree tree(5,2,6,3);
     // tree.rb_insert(11);
     // tree.rb_insert(9);
