@@ -196,7 +196,7 @@ private:
         // }
         // return;
     }
-    void left_rotate_zig(Node *&p){
+    void left_rotate_zig(Node *p){
         Node *pai;
         Node *grand_p;
         pai = p->parent;
@@ -216,7 +216,7 @@ private:
         recolor(pai);
     }
 
-    void right_rotate_zig(Node *&p){
+    void right_rotate_zig(Node *p){
         Node *pai;
         Node *grand_p;
         pai = p->parent;
@@ -455,10 +455,14 @@ int main() {
     // tree.rb_insert(11);
     // tree.rb_insert(9);
     // RBTree tree(1,2,3);
-    RBTree tree(1,2,3,4,5);
+    // RBTree tree(1,2,3,4,5);
     // RBTree tree(41,38,31,12,11);
     // RBTree tree(41,38,31,12,19);
     // RBTree tree(41,38,31,12,19,8);
+
+    // RBTree tree(1,2,3,8,5);
+    RBTree tree(1,2,3,8,5);
+    // tree.rb_insert(5);
     tree.rb_print();
 
     // BST bst;
@@ -498,11 +502,22 @@ int main() {
 
 
     // Node **pp;
-    // Node *p;
-    // Node *pc;
+    // Node *p1;
+    // Node *p2;
+    // // Node *pc;
     // Node n(2,'r');
     // Node n2(3,'r');
-    // p = &n;
+    // p1 = &n;
+    // p1->pChild[1] = &n2;
+    // p2 = p1->pChild[1];
+    // cout << p1->data << endl;
+    // cout << p1->pChild[1]->data << endl;
+    // cout << p2->data<<endl;
+    // p1->pChild[1] = p2->pChild[0];
+    // p2->pChild[0] = p1;
+    // cout << p1->data << endl;
+    // cout << p2->data << endl;
+
     // pc= p;
     // cout << p << endl;
     // cout << pc << endl;
