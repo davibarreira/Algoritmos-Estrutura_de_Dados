@@ -4,13 +4,6 @@
 #include <initializer_list>
 
 
-//temp
-#include <array>
-#include <cstdlib>
-#include <cstdio>
-
-//temp
-
 using namespace std;
 
 struct Node {
@@ -100,6 +93,14 @@ public:
 
             recolor(*p);
         }
+    }
+
+    void rb_remove(int x) {
+        Node **p;
+        Node **parent;
+        parent = &pRoot;
+        if(rb_find(x, p, parent))
+            rb_remove(*p);
     }
 
     void rb_print() {
@@ -337,6 +338,17 @@ private:
         }
     }
 
+    void rb_remove(Node *&p) {
+        if (!p->pChild[0] || !p->pChild[1])
+            p = p->pChild[p->pChild[1]!=nullptr];
+        else {
+            Node **succesor = &(p->pChild[1]);
+            find_min(succesor);
+            p->data = (*succesor)->data;
+            remove(*succesor);
+        }
+    }
+
     // Busca pelo primeiro node que tenha pChild a esquerda
     void find_min(Node **&p) {
 
@@ -437,6 +449,9 @@ int main() {
     tree.rb_print();
 
     tree = RBTree(5,2,10,8,12,6,9,7,20,22,1,60,50,40);
+    tree.rb_print();
+    tree.rb_remove(8);
+    cout << "---------------------"<<endl;
     tree.rb_print();
 
 
