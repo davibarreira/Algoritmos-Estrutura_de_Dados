@@ -416,98 +416,111 @@ private:
         // * P2_3
             else if ((d->color=='b')&&(r->color=='r'))
             {
-                p->pChild[p->pChild[1]!=nullptr]->parent = p->parent;
-                p = r;
-                p->color = 'b';
-                return;
-            }
-        }
-
-
-
-
-        // Initial step 1
-        if (!p->pChild[0] || !p->pChild[1]){
-            // initial step 1 , (A) and (B)
-            x = p->pChild[p->pChild[1]!=nullptr];
-            // initial step 2, (A)
-            if (x==nullptr)
-            {
-            // Exemplo removendo 6
-                if (d->color=='r')
-                {
-                    p = p->pChild[p->pChild[1]!=nullptr];
-                }
-            }
-
-            else{
-
-            // Exemplo removendo 1
-                if ((d->color=='b')&&(x->color=='r'))
+                if (INITIAL == 3)
                 {
                     p->pChild[p->pChild[1]!=nullptr]->parent = p->parent;
-                    p = p->pChild[p->pChild[1]!=nullptr];
                     p->color = 'b';
+                    rb_remove(*succesor);
+                    return;
                 }
-
-                else{
+                else
+                {
                     p->pChild[p->pChild[1]!=nullptr]->parent = p->parent;
-                    p = p->pChild[p->pChild[1]!=nullptr];
+                    p = r;
+                    p->color = 'b';
+                    return;
                 }
-
             }
 
         }
-
-        // initial step 1, (C)
-        else {
-
-
-            // Node **succesor = &(p->pChild[1]);
-            // find_min(succesor);
-            p->data = (*succesor)->data;
-            x = (*succesor)->pChild[1];
-
-            // if (x!=nullptr)
-            // {
-            //     cout << x->data << endl;
-            // }
-
-
-            if (x==nullptr)
-            {
-            // Exemplo removendo 7
-                if (d->color=='r')
-                {
-                    rb_remove(*succesor);
-                }
-
-            // Exemplo removendo 25
-                else if ((d->color=='b')&&((*succesor)->color == 'r'))
-                {
-                    rb_remove(*succesor);
-                }
-            }
-
-            else{
-                if ((d->color=='r')&&(x->color=='r'))
-                {
-                    rb_remove(*succesor);
-                }
-
-                if ((d->color=='b')&&((*succesor)->color == 'r'))
-                {
-                    rb_remove(*succesor);
-                }
-                else{
-                    rb_remove(*succesor);
-                }
-            }
-            // Exemplo removendo 25
+        // * P2_4 - Se nenhum anterior ocorreu, então estamos em P2_4
 
 
 
-        }
+
+
+        // // Initial step 1
+        // if (!p->pChild[0] || !p->pChild[1]){
+        //     // initial step 1 , (A) and (B)
+        //     x = p->pChild[p->pChild[1]!=nullptr];
+        //     // initial step 2, (A)
+        //     if (x==nullptr)
+        //     {
+        //     // Exemplo removendo 6
+        //         if (d->color=='r')
+        //         {
+        //             p = p->pChild[p->pChild[1]!=nullptr];
+        //         }
+        //     }
+
+        //     else{
+
+        //     // Exemplo removendo 1
+        //         if ((d->color=='b')&&(x->color=='r'))
+        //         {
+        //             p->pChild[p->pChild[1]!=nullptr]->parent = p->parent;
+        //             p = p->pChild[p->pChild[1]!=nullptr];
+        //             p->color = 'b';
+        //         }
+
+        //         else{
+        //             p->pChild[p->pChild[1]!=nullptr]->parent = p->parent;
+        //             p = p->pChild[p->pChild[1]!=nullptr];
+        //         }
+
+        //     }
+
+        // }
+
+        // // initial step 1, (C)
+        // else {
+
+
+        //     // Node **succesor = &(p->pChild[1]);
+        //     // find_min(succesor);
+        //     p->data = (*succesor)->data;
+        //     x = (*succesor)->pChild[1];
+
+        //     // if (x!=nullptr)
+        //     // {
+        //     //     cout << x->data << endl;
+        //     // }
+
+
+        //     if (x==nullptr)
+        //     {
+        //     // Exemplo removendo 7
+        //         if (d->color=='r')
+        //         {
+        //             rb_remove(*succesor);
+        //         }
+
+        //     // Exemplo removendo 25
+        //         else if ((d->color=='b')&&((*succesor)->color == 'r'))
+        //         {
+        //             rb_remove(*succesor);
+        //         }
+        //     }
+
+        //     else{
+        //         if ((d->color=='r')&&(x->color=='r'))
+        //         {
+        //             rb_remove(*succesor);
+        //         }
+
+        //         if ((d->color=='b')&&((*succesor)->color == 'r'))
+        //         {
+        //             rb_remove(*succesor);
+        //         }
+        //         else{
+        //             rb_remove(*succesor);
+        //         }
+        //     }
+        //     // Exemplo removendo 25
+
+
+
+        // }
     }
 
     // Busca pelo primeiro node que tenha pChild a esquerda
@@ -618,8 +631,8 @@ int main() {
     tree.rb_print();
     // tree.rb_remove(6);
     // tree.rb_remove(1);
-    tree.rb_remove(17);
-    // tree.rb_remove(25);
+    // tree.rb_remove(17);
+    tree.rb_remove(25);
     cout << "---------------------"<<endl;
     tree.rb_print();
     // cout << "---------------------"<<endl;
