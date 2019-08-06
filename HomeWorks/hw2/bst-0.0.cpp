@@ -339,13 +339,32 @@ private:
     }
 
     void rb_remove(Node *&p) {
-        if (!p->pChild[0] || !p->pChild[1])
-            p = p->pChild[p->pChild[1]!=nullptr];
+        // x eh um helper, d é o nó que será deletado, porém é só um helper
+        Node *x;
+        Node *d;
+        d = p;
+        // Initial step 1
+        if (!p->pChild[0] || !p->pChild[1]){
+            x = p->pChild[p->pChild[1]!=nullptr];
+            if ((d->color=='r')&&((x->color=='r')||(x==nullptr)))
+            {
+                p = p->pChild[p->pChild[1]!=nullptr];
+            }
+            if ((d->color=='b')&&(x->color=='r'))
+            {
+                p = p->pChild[p->pChild[1]!=nullptr];
+                p->color = 'b';
+            }
+
+            // p = p->pChild[p->pChild[1]!=nullptr];
+            // cout << d->data << endl;
+        }
         else {
             Node **succesor = &(p->pChild[1]);
             find_min(succesor);
             p->data = (*succesor)->data;
-            remove(*succesor);
+            x = (*succesor)->pChild[1];
+            rb_remove(*succesor);
         }
     }
 
@@ -450,7 +469,11 @@ int main() {
 
     tree = RBTree(5,2,10,8,12,6,9,7,20,22,1,60,50,40);
     tree.rb_print();
-    tree.rb_remove(8);
+    cout << "---------------------"<<endl;
+    cout << "---------------------"<<endl;
+    tree = RBTree(13,8,17,1,11,15,25,6,22,27);
+    tree.rb_print();
+    tree.rb_remove(1);
     cout << "---------------------"<<endl;
     tree.rb_print();
 
