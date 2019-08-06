@@ -343,21 +343,39 @@ private:
         Node *x;
         Node *d;
         d = p;
+        cout << d->data << endl;
         // Initial step 1
         if (!p->pChild[0] || !p->pChild[1]){
+            // initial step 1 , (A) and (B)
             x = p->pChild[p->pChild[1]!=nullptr];
-            if ((d->color=='r')&&((x->color=='r')||(x==nullptr)))
+            // initial step 2, (A)
+            if (x==nullptr)
             {
-                p = p->pChild[p->pChild[1]!=nullptr];
+                if (d->color=='r')
+                {
+                    p = p->pChild[p->pChild[1]!=nullptr];
+                }
             }
-            if ((d->color=='b')&&(x->color=='r'))
-            {
-                p = p->pChild[p->pChild[1]!=nullptr];
-                p->color = 'b';
+            else{
+
+                if ((d->color=='r')&&((x==nullptr)||(x->color=='r')))
+                {
+                    p = p->pChild[p->pChild[1]!=nullptr];
+                }
+                // initial step 2, (C)
+                if ((d->color=='b')&&(x->color=='r'))
+                {
+                    p = p->pChild[p->pChild[1]!=nullptr];
+                    p->color = 'b';
+                }
+
+                else{
+                    p = p->pChild[p->pChild[1]!=nullptr];
+                }
+
             }
 
             // p = p->pChild[p->pChild[1]!=nullptr];
-            // cout << d->data << endl;
         }
         else {
             Node **succesor = &(p->pChild[1]);
