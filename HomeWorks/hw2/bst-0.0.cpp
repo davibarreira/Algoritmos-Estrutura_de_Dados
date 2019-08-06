@@ -378,12 +378,20 @@ private:
 
         // initial step 1, (C)
         else {
+
+    cout << p->data << endl;
+
             Node **succesor = &(p->pChild[1]);
             find_min(succesor);
             p->data = (*succesor)->data;
             x = (*succesor)->pChild[1];
 
-            cout << p->data << endl;
+            if (x!=nullptr)
+            {
+                cout << x->data << endl;
+            }
+
+
             if (x==nullptr)
             {
             // Exemplo removendo 7
@@ -532,13 +540,13 @@ int main() {
     tree.rb_remove(25);
     cout << "---------------------"<<endl;
     tree.rb_print();
-    // cout << "---------------------"<<endl;
-    // cout << "MEDIUM CASES" << endl;
-    // tree = RBTree(7,3,18,10,22,8,11,26);
-    // tree.rb_print();
-    // cout << "---------------------"<<endl;
-    // tree.rb_remove(22);
-    // tree.rb_print();
+    cout << "---------------------"<<endl;
+    cout << "MEDIUM CASES" << endl;
+    tree = RBTree(7,3,18,10,22,8,11,26);
+    tree.rb_print();
+    cout << "---------------------"<<endl;
+    tree.rb_remove(18);
+    tree.rb_print();
 
 
     return 0;
