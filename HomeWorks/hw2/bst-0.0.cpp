@@ -410,6 +410,7 @@ private:
             if ((d->color == 'r')&&(r->color=='b'))
             {
                 r->color = 'r';
+                cout << x->data << endl;
                 // proceder para caso apropriado
             }
 
@@ -434,6 +435,14 @@ private:
 
         }
         // * P2_4 - Se nenhum anterior ocorreu, então estamos em P2_4
+
+        // CASE 0
+        if (x->color == 'd')
+        {
+            x->color = 'b';
+            return;
+        }
+
 
 
 
@@ -635,13 +644,13 @@ int main() {
     tree.rb_remove(25);
     cout << "---------------------"<<endl;
     tree.rb_print();
-    // cout << "---------------------"<<endl;
-    // cout << "MEDIUM CASES" << endl;
-    // tree = RBTree(7,3,18,10,22,8,11,26);
-    // tree.rb_print();
-    // cout << "---------------------"<<endl;
-    // tree.rb_remove(18);
-    // tree.rb_print();
+    cout << "---------------------"<<endl;
+    cout << "MEDIUM CASES" << endl;
+    tree = RBTree(7,3,18,10,22,8,11,26);
+    tree.rb_print();
+    cout << "---------------------"<<endl;
+    tree.rb_remove(18);
+    tree.rb_print();
 
 
     return 0;
