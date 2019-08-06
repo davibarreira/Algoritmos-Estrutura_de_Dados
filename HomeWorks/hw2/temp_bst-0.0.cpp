@@ -344,7 +344,7 @@ private:
         Node *d; // node a ser deletado helper
         Node *r; // node replacement helper
         Node **succesor = &(p->pChild[1]);
-        int INITIAL;
+        find_min(succesor);
 
 
         d = p;
@@ -352,76 +352,22 @@ private:
         // PASSO 1 - SELECIONAR O X
         if ((p->pChild[0] == nullptr)&&(p->pChild[1] == nullptr))
         {
-            INITIAL = 1;
             x = p->pChild[1];
             r = x;
         }
-        else if ((p->pChild[0] == nullptr)||(p->pChild[1] == nullptr))
+        else if ((p->pChild[0] != nullptr)||(p->pChild[1] == nullptr))
         {
-            INITIAL = 2;
             x = p->pChild[p->pChild[1]!=nullptr];
-            r = x;
         }
         else {
-            INITIAL = 3;
-            find_min(succesor);
             x = (*succesor)->pChild[1];
-            r = (*succesor);
-            p->data = (*succesor)->data;
         }
 
         // PASSO 2 - SEGUNDA CONDICAO
 
-        // * P2_1
-        if (r==nullptr)
-        {
-            if (d->color == 'r'){
-                if (INITIAL == 3)
-                {
-                    rb_remove(*succesor);
-                    return;
-                }
-                else
-                {
-                    p = r;
-                    return;
-                }
-            }
-        }
-        else if((d->color=='r')&&(r->color=='r')){
-                if (INITIAL == 3)
-                {
-                    rb_remove(*succesor);
-                    return;
-                }
-                else
-                {
-                    p = r;
-                    return;
-                }
-        }
 
 
 
-        if (r!=nullptr)
-        {
-
-        // * P2_2
-            if ((d->color == 'r')&&(r->color=='b'))
-            {
-                r->color = 'r';
-                // proceder para caso apropriado
-            }
-
-        // * P2_3
-            else if ((d->color=='b')&&(r->color=='r'))
-            {
-                p->pChild[p->pChild[1]!=nullptr]->parent = p->parent;
-                p = r;
-                p->color = 'b';
-                return;
-            }
-        }
 
 
 
@@ -462,15 +408,24 @@ private:
         // initial step 1, (C)
         else {
 
+    cout << p->data << endl;
 
             // Node **succesor = &(p->pChild[1]);
             // find_min(succesor);
+
+
             p->data = (*succesor)->data;
             x = (*succesor)->pChild[1];
 
+            // Debug helper
             // if (x!=nullptr)
             // {
             //     cout << x->data << endl;
+            // }
+
+            // if ((d->color == 'r')&&((*succesor)->color=='b'))
+            // {
+            //     // Proceed to apropriate case
             // }
 
 
@@ -618,17 +573,17 @@ int main() {
     tree.rb_print();
     // tree.rb_remove(6);
     // tree.rb_remove(1);
-    tree.rb_remove(17);
-    // tree.rb_remove(25);
+    // tree.rb_remove(17);
+    tree.rb_remove(25);
     cout << "---------------------"<<endl;
     tree.rb_print();
-    // cout << "---------------------"<<endl;
-    // cout << "MEDIUM CASES" << endl;
-    // tree = RBTree(7,3,18,10,22,8,11,26);
-    // tree.rb_print();
-    // cout << "---------------------"<<endl;
-    // tree.rb_remove(18);
-    // tree.rb_print();
+    cout << "---------------------"<<endl;
+    cout << "MEDIUM CASES" << endl;
+    tree = RBTree(7,3,18,10,22,8,11,26);
+    tree.rb_print();
+    cout << "---------------------"<<endl;
+    tree.rb_remove(18);
+    tree.rb_print();
 
 
     return 0;
