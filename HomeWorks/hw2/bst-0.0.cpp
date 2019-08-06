@@ -343,7 +343,6 @@ private:
         Node *x;
         Node *d;
         d = p;
-        cout << d->data << endl;
         // Initial step 1
         if (!p->pChild[0] || !p->pChild[1]){
             // initial step 1 , (A) and (B)
@@ -351,38 +350,73 @@ private:
             // initial step 2, (A)
             if (x==nullptr)
             {
+            // Exemplo removendo 6
                 if (d->color=='r')
                 {
                     p = p->pChild[p->pChild[1]!=nullptr];
                 }
             }
+
             else{
 
-                if ((d->color=='r')&&((x==nullptr)||(x->color=='r')))
-                {
-                    p = p->pChild[p->pChild[1]!=nullptr];
-                }
-                // initial step 2, (C)
+            // Exemplo removendo 1
                 if ((d->color=='b')&&(x->color=='r'))
                 {
+                    p->pChild[p->pChild[1]!=nullptr]->parent = p->parent;
                     p = p->pChild[p->pChild[1]!=nullptr];
                     p->color = 'b';
                 }
 
                 else{
+                    p->pChild[p->pChild[1]!=nullptr]->parent = p->parent;
                     p = p->pChild[p->pChild[1]!=nullptr];
                 }
 
             }
 
-            // p = p->pChild[p->pChild[1]!=nullptr];
         }
+
+        // initial step 1, (C)
         else {
             Node **succesor = &(p->pChild[1]);
             find_min(succesor);
             p->data = (*succesor)->data;
             x = (*succesor)->pChild[1];
-            rb_remove(*succesor);
+
+            cout << p->data << endl;
+            if (x==nullptr)
+            {
+            // Exemplo removendo 7
+                if (d->color=='r')
+                {
+                    rb_remove(*succesor);
+                }
+
+            // Exemplo removendo 25
+                else if ((d->color=='b')&&((*succesor)->color == 'r'))
+                {
+                    rb_remove(*succesor);
+                }
+            }
+
+            else{
+                if ((d->color=='r')&&(x->color=='r'))
+                {
+                    rb_remove(*succesor);
+                }
+
+                if ((d->color=='b')&&((*succesor)->color == 'r'))
+                {
+                    rb_remove(*succesor);
+                }
+                else{
+                    rb_remove(*succesor);
+                }
+            }
+            // Exemplo removendo 25
+
+
+
         }
     }
 
@@ -489,11 +523,22 @@ int main() {
     tree.rb_print();
     cout << "---------------------"<<endl;
     cout << "---------------------"<<endl;
+    cout << "SIMPLE CASES" << endl;
     tree = RBTree(13,8,17,1,11,15,25,6,22,27);
     tree.rb_print();
-    tree.rb_remove(1);
+    // tree.rb_remove(6);
+    // tree.rb_remove(1);
+    // tree.rb_remove(17);
+    tree.rb_remove(25);
     cout << "---------------------"<<endl;
     tree.rb_print();
+    // cout << "---------------------"<<endl;
+    // cout << "MEDIUM CASES" << endl;
+    // tree = RBTree(7,3,18,10,22,8,11,26);
+    // tree.rb_print();
+    // cout << "---------------------"<<endl;
+    // tree.rb_remove(22);
+    // tree.rb_print();
 
 
     return 0;
