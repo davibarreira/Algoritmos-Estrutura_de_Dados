@@ -345,7 +345,7 @@ private:
         Node *r; // node replacement helper
         Node **succesor = &(p->pChild[1]);
         int INITIAL;
-
+        int CASE;
 
         d = p;
 
@@ -443,6 +443,17 @@ private:
         }
         // * P2_4 - Se nenhum anterior ocorreu, então estamos em P2_4
 
+
+        Node *w; // irmao de x
+        if (p->pChild[0]==x)
+        {
+            w = p->pChild[1];
+        }
+        else{
+            w = p->pChild[0];
+        }
+
+
         // CASE 0
         if (x!=nullptr)
         {
@@ -453,6 +464,62 @@ private:
             }
         }
 
+        // CASO 1: Node x is black and its sibling w is red
+
+
+
+        // CASO 2: Node x is black and its sibling w is black
+        // and both w's children are black
+        if (x==nullptr)
+        {
+            if (w == nullptr)
+               {
+                    CASE = 2;
+               }
+            else if (w->color=='b')
+            {
+                if (w->pChild[0]==nullptr)
+                {
+                    if (w->pChild[1]==nullptr)
+                    {
+                        CASE = 2;
+                    }
+                    else if (w->pChild[1]->color == 'b'){
+                        CASE = 2;
+                    }
+                }
+                else if (w->pChild[1]==nullptr)
+                {
+                    if (w->pChild[0]==nullptr)
+                    {
+                        CASE = 2;
+                    }
+                    else if (w->pChild[0]->color == 'b'){
+                        CASE = 2;
+                    }
+                }
+
+            }
+        }
+        if (CASE == 2)
+        {
+            w->color = 'r';
+            x = p;
+            if (x->color == 'r'){
+                x->color = 'b';
+                return;
+            }
+            else {
+                cout << "IMPLEMENTAR LOOP" << endl;
+            }
+        }
+        // if (x==nullptr)
+        // {
+        //     if (w->color == 'b')
+        //     {
+        //         /* code */
+        //     }
+        // }
 
 
 
