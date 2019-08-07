@@ -409,8 +409,16 @@ private:
         // * P2_2
             if ((d->color == 'r')&&(r->color=='b'))
             {
-                r->color = 'r';
-                cout << x->data << endl;
+                if (INITIAL == 3)
+                {
+                    r->color = 'r';
+                    cout << p->data << endl;
+                    rb_remove(*succesor);
+                }
+                else
+                {
+                    r->color = 'r';
+                }
                 // proceder para caso apropriado
             }
 
@@ -646,11 +654,27 @@ int main() {
     tree.rb_print();
     cout << "---------------------"<<endl;
     cout << "MEDIUM CASES" << endl;
-    tree = RBTree(7,3,18,10,22,8,11,26);
+
+    // tree = RBTree(7,3,18,10,22,8,11,26);
+    // tree.rb_print();
+    // cout << "---------------------"<<endl;
+    // tree.rb_remove(18);
+
+    tree = RBTree(5,2,8,1,4,9,7,3);
     tree.rb_print();
     cout << "---------------------"<<endl;
-    tree.rb_remove(18);
+    tree.rb_remove(2);
     tree.rb_print();
+    tree.rb_remove(3);
+    // tree.rb_print();
+
+
+    // Testar esse caso - está quebrando
+    // tree = RBTree(5,3,8,1,4,9,7,2);
+    // tree.rb_print();
+    // cout << "---------------------"<<endl;
+    // tree.rb_remove(3);
+    // tree.rb_print();
 
 
     return 0;
