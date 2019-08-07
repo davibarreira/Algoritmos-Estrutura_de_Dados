@@ -412,7 +412,6 @@ private:
                 if (INITIAL == 3)
                 {
                     r->color = 'r';
-                    cout << p->data << endl;
                     rb_remove(*succesor);
                 }
                 else
@@ -445,10 +444,13 @@ private:
         // * P2_4 - Se nenhum anterior ocorreu, então estamos em P2_4
 
         // CASE 0
-        if (x->color == 'd')
+        if (x!=nullptr)
         {
-            x->color = 'b';
-            return;
+            if (x->color == 'd')
+            {
+                x->color = 'b';
+                return;
+            }
         }
 
 
@@ -665,8 +667,9 @@ int main() {
     cout << "---------------------"<<endl;
     tree.rb_remove(2);
     tree.rb_print();
+    cout << "---------------------"<<endl;
     tree.rb_remove(3);
-    // tree.rb_print();
+    tree.rb_print();
 
 
     // Testar esse caso - está quebrando
