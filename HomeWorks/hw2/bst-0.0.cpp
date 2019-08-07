@@ -15,7 +15,7 @@ struct Node {
     Node *pChild[2];
 
     // Inicializa o node e adiciona dois ponteiros que apontam para espaços de memória node nulos
-    //                   _Node_ 
+    //                   _Node_
     //  Null <- pChild__|      |__pChild -> Null
     //
     Node(int x, char c):data(x), color(c) {
@@ -24,12 +24,12 @@ struct Node {
 };
 
 class BST {
-    // A ideia geral da classe eh definidr um *pRoot que aponta para um struct Node, que 
+    // A ideia geral da classe eh definidr um *pRoot que aponta para um struct Node, que
     // contem dois ponteiros que apontam inicialmente para nodes nulos. Sao os *pChild
     // A medida que se aplica o insert esse ponteiro *pChild vai apontando para outros nodes
     // que contem mais pChild, e assim vai se formando a arvore
     /*
-            *pRoot ----->  Node { Valor X1 
+            *pRoot ----->  Node { Valor X1
                                   pChild[1] -------->  Node {Valor X2 |
                                                              pChild[1] --------> Node {Valor X4 | ... }
                                                              pChild[2] --------> Node {Valor X5 | ... }}
@@ -79,7 +79,7 @@ public:
         cout << endl;
     }
 
-    // Funcao criada especificamente para 
+    // Funcao criada especificamente para
     void rb_insert(int x) {
         Node **p;
         Node **parent;
@@ -123,7 +123,7 @@ private:
             return;
         }
 
-        grand_p = pai->parent; 
+        grand_p = pai->parent;
         // Node esta na esquerda do grand_p
         if (grand_p->data > p->data)
         {
@@ -157,39 +157,39 @@ private:
             cout << "CASO 3"<<endl;
 
             //right_rotate
-        if (pai->data > p->data)
-        {
-            if (pai->data > grand_p->data)
+            if (pai->data > p->data)
             {
-                cout << "NODE" << p->data << " RIGHT_ROTATE_ZIG"<<endl;
-                right_rotate_zig(p);
+                if (pai->data > grand_p->data)
+                {
+                    cout << "NODE" << p->data << " RIGHT_ROTATE_ZIG"<<endl;
+                    right_rotate_zig(p);
+                }
+                else{
+
+                    cout << "NODE" << p->data << " RIGHT_ROTATE_LINE"<<endl;
+                    right_rotate_line(p);
+
+                }
             }
             else{
-
-                cout << "NODE" << p->data << " RIGHT_ROTATE_LINE"<<endl;
-                right_rotate_line(p);
+                if (pai->data > grand_p->data)
+                {
+                    cout << "NODE" << p->data << " LEFT_ROTATE_LINE"<<endl;
+                    left_rotate_line(p);
+                }
+                else{
+                    cout << "NODE" << p->data << " LEFT_ROTATE_ZIG"<<endl;
+                    left_rotate_zig(p);
+                }
 
             }
-        }
-        else{
-            if (pai->data > grand_p->data)
-            {
-                cout << "NODE" << p->data << " LEFT_ROTATE_LINE"<<endl;
-                left_rotate_line(p);
-            }
-            else{
-                cout << "NODE" << p->data << " LEFT_ROTATE_ZIG"<<endl;
-                left_rotate_zig(p);
-            }
-
-        }
         }
     }
     void left_rotate_zig(Node *p){
         Node *pai;
         Node *grand_p;
         pai = p->parent;
-        grand_p = pai->parent; 
+        grand_p = pai->parent;
 
         p->parent      = grand_p;
         pai->parent    = p;
@@ -208,7 +208,7 @@ private:
         Node *pai;
         Node *grand_p;
         pai = p->parent;
-        grand_p = pai->parent; 
+        grand_p = pai->parent;
 
         p->parent      = grand_p;
         pai->parent    = p;
@@ -228,7 +228,7 @@ private:
         Node *pai;
         Node *grand_p;
         pai = p->parent;
-        grand_p = pai->parent; 
+        grand_p = pai->parent;
 
         if(pai->pChild[0]){
             pai->pChild[0]->parent = grand_p;
@@ -255,7 +255,7 @@ private:
         Node *pai;
         Node *grand_p;
         pai = p->parent;
-        grand_p = pai->parent; 
+        grand_p = pai->parent;
 
         if(pai->pChild[1]){
             pai->pChild[1]->parent = grand_p;
@@ -302,7 +302,7 @@ private:
         p = &pRoot;
         // *p eh o endereço do Node. O primeiro *p eh o node que pRoot aponta, ou seja, o endereço no node raiz
         while(*p) {
-            // se o valor do node apontado for x, find retorna true 
+            // se o valor do node apontado for x, find retorna true
             if ((*p)->data==x) return true;
 
             // p recebe o node filho a direita ou a esquerda dependendo se o dado do node atual eh < que x
@@ -325,10 +325,10 @@ private:
         if (!p->pChild[0] || !p->pChild[1])
             p = p->pChild[p->pChild[1]!=nullptr];
 
-        // caso ambos os nodes NAO sejam nulos, entao
-        // busca o sucessor do node a ser removido (menor numero a direita dele)
-        // troca o valor do node a ser removido com o menor sucessor dele e aplica o codigo
-        // de remove no sucessor. O codigo se repete ate nao tem mais sucessores
+            // caso ambos os nodes NAO sejam nulos, entao
+            // busca o sucessor do node a ser removido (menor numero a direita dele)
+            // troca o valor do node a ser removido com o menor sucessor dele e aplica o codigo
+            // de remove no sucessor. O codigo se repete ate nao tem mais sucessores
         else {
             // comeca pelo primeiro pChild a direita
             Node **succesor = &(p->pChild[1]);
@@ -389,16 +389,16 @@ private:
             }
         }
         else if((d->color=='r')&&(r->color=='r')){
-                if (INITIAL == 3)
-                {
-                    rb_remove(*succesor);
-                    return;
-                }
-                else
-                {
-                    p = r;
-                    return;
-                }
+            if (INITIAL == 3)
+            {
+                rb_remove(*succesor);
+                return;
+            }
+            else
+            {
+                p = r;
+                return;
+            }
         }
 
 
@@ -406,7 +406,7 @@ private:
         if (r!=nullptr)
         {
 
-        // * P2_2
+            // * P2_2
             if ((d->color == 'r')&&(r->color=='b'))
             {
                 if (INITIAL == 3)
@@ -421,7 +421,7 @@ private:
                 // proceder para caso apropriado
             }
 
-        // * P2_3
+                // * P2_3
             else if ((d->color=='b')&&(r->color=='r'))
             {
                 if (INITIAL == 3)
@@ -442,6 +442,14 @@ private:
 
         }
         // * P2_4 - Se nenhum anterior ocorreu, então estamos em P2_4
+        if (INITIAL == 3)
+        {
+            rb_remove(*succesor);
+        }
+        else{
+            p = r;
+            return;
+        }
 
 
         Node *w; // irmao de x
@@ -473,9 +481,9 @@ private:
         if (x==nullptr)
         {
             if (w == nullptr)
-               {
-                    CASE = 2;
-               }
+            {
+                CASE = 2;
+            }
             else if (w->color=='b')
             {
                 if (w->pChild[0]==nullptr)
@@ -706,36 +714,43 @@ void test(int **&pp) {
 int main() {
 
     RBTree tree(41,38,31,12,19,8,10,11,15,300,12,20);
-    tree.rb_print();
+//    tree.rb_print();
+//
+//    tree = RBTree(5,2,10,8,12,6,9,7,20,22,1,60,50,40);
+//    tree.rb_print();
+//    cout << "---------------------"<<endl;
+//    cout << "---------------------"<<endl;
+//    cout << "SIMPLE CASES" << endl;
+//    tree = RBTree(13,8,17,1,11,15,25,6,22,27);
+//    tree.rb_print();
+//    // tree.rb_remove(6);
+//    // tree.rb_remove(1);
+//    // tree.rb_remove(17);
+//    tree.rb_remove(25);
+//    cout << "---------------------"<<endl;
+//    tree.rb_print();
+//    cout << "---------------------"<<endl;
+//    cout << "MEDIUM CASES" << endl;
+//
+//    // tree = RBTree(7,3,18,10,22,8,11,26);
+//    // tree.rb_print();
+//    // cout << "---------------------"<<endl;
+//    // tree.rb_remove(18);
+//
+//    tree = RBTree(5,2,8,1,4,9,7,3);
+//    tree.rb_print();
+//    cout << "---------------------"<<endl;
+//    tree.rb_remove(2);
+//    tree.rb_print();
+//    cout << "---------------------"<<endl;
+//    tree.rb_remove(3);
+//    tree.rb_print();
 
-    tree = RBTree(5,2,10,8,12,6,9,7,20,22,1,60,50,40);
-    tree.rb_print();
     cout << "---------------------"<<endl;
-    cout << "---------------------"<<endl;
-    cout << "SIMPLE CASES" << endl;
     tree = RBTree(13,8,17,1,11,15,25,6,22,27);
     tree.rb_print();
-    // tree.rb_remove(6);
-    // tree.rb_remove(1);
-    // tree.rb_remove(17);
-    tree.rb_remove(25);
     cout << "---------------------"<<endl;
-    tree.rb_print();
-    cout << "---------------------"<<endl;
-    cout << "MEDIUM CASES" << endl;
-
-    // tree = RBTree(7,3,18,10,22,8,11,26);
-    // tree.rb_print();
-    // cout << "---------------------"<<endl;
-    // tree.rb_remove(18);
-
-    tree = RBTree(5,2,8,1,4,9,7,3);
-    tree.rb_print();
-    cout << "---------------------"<<endl;
-    tree.rb_remove(2);
-    tree.rb_print();
-    cout << "---------------------"<<endl;
-    tree.rb_remove(3);
+    tree.rb_remove(13);
     tree.rb_print();
 
 
