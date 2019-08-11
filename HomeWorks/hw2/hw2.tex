@@ -7,6 +7,11 @@
 \usepackage{url}
 \usepackage[linesnumbered,ruled,vlined]{algorithm2e}
 \usepackage{enumitem}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsmath}
+
 
 
 \definecolor{mygreen}{rgb}{0,0.6,0}
@@ -43,6 +48,7 @@
 Fundação Getulio Vargas\hfill\\
 Estruturas de Dados e Algoritmos\hfill\textbf{\assignment}\\
 Prof.\ Jorge Poco\hfill\textbf{Due:}: \duedate\\
+Aluno: Davi Sales Barreira
 \smallskip\hrule\bigskip
 
 {\let\newpage\relax\maketitle}
@@ -145,5 +151,59 @@ print(A_sorted)
 \end{enumerate}
 
 
+\pagebreak
 
+\part*{Respostas}
+\section*{Questão 3}
+\begin{enumerate}[label=(\alph*)]
+  \item Algoritmo Counting Sort satisfaz essas duas condições.
+  \item ???
+  \item Para esse caso podemos utilizar o Insert Sort, pois é estável e inplace.
+  \item ??
+  \item 
+\end{enumerate}
+
+\section*{Questão 4}
+\begin{enumerate}[label=(\alph*)]
+  \item Sendo $X_i$ um variável aleatório da definida como:
+  \begin{equation}
+  X_i=\begin{cases}
+    1, & \text{se o pivot for o menor elemento}.\\
+    0, & \text{caso contrário}.
+  \end{cases}
+\end{equation}
+  Assim, $\mathbb{E}[X_i]=P(X_i=1)\cdot 1 + P(X_i=0)\cdot 0 = P(X_i=1)= \frac{1}{n}$
+
+  \item O algoritmo do Quicksort realiza uma partição de
+  complexidade $\Theta(n)$ em um elemento $q$, quebrando a lista em duas.
+  Em seguida, o algoritmo é chamado recursivamente em cada uma dessas listas.
+  Dessa forma, a complexidade com Quicksort pode ser escrita como:
+  $$T(n)=T(q-1)+T(n-q)+\Theta(n)$$
+
+  CONCLUIR
+
+  \item Utilizando a linearidade da esperança e o fato que
+  $E[X_i]=\frac{1}{n}$, temos:
+
+    $$E[T(n)]=E\left[\sum_{q=1}^{n}X_q(T(q-1)+T(n-q)+\Theta(n))\right]$$ 
+    $$E[T(n)]=\sum_{q=1}^{n}E\left[X_q(T(q-1)+T(n-q)+\Theta(n))\right] = 
+      \sum_{q=1}^{n}\frac{1}{n}[T(q-1)+T(n-q)+\Theta(n)]
+    $$
+    $$E[T(n)]=\Theta(n)\cdot \frac{n}{n}+\frac{1}{n}
+    \sum_{q=1}^{n}[T(q-1)+T(n-q)]$$
+
+    Perceba que:
+    $$
+    \sum_{q=1}^{n}[T(q-1)] = T(0) + T(1) + ... + T(n-1) =
+    \sum_{q=1}^n[T(n-q)]
+    $$
+    Portanto:
+    $$E[T(n)]=\Theta(n)+\frac{2}{n}
+    \sum_{q=1}^{n-1}T(q)$$
+
+
+
+
+\end{enumerate}
 \end{document}
+
