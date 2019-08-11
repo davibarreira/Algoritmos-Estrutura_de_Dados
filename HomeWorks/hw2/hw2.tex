@@ -211,6 +211,65 @@ print(A_sorted)
     \sum_{q=1}^{n-1}T(q)$$
 
 
+    \item Utilizaremos a soma por partes (ou transformação de Abel).
+    Assim, para $S_n=\sum_{k=1}^{n-1}k$:
+    $$\sum_{k=2}^{n-1} k \lg k = \sum_{k=2}^{n-1}(S_k-S_{k-1}\lg k)
+    = \sum_{k=2}^{n-1} S_k \lg k - \sum_{k=2}^{n-1} S_{k-1} \lg k= $$
+    $$=
+    S_{n-1}\lg(n)-S_0 \lg 1 - \sum_{k=2}^{n-2}[S_k\lg (1+1/k)]
+    $$
+
+    Note que $S_{n-1} = \frac{n^2 - n}{2}$, logo:
+    $$\sum_{k=2}^{n-1} k \lg k =
+    \frac{n^2 - n}{2}\lg(n)- \sum_{k=2}^{n-2}\frac{k^2 - k}{2}
+    \lg (1+1/k) = 
+    \frac{n^2 - n}{2}\lg(n)- \sum_{k=2}^{n-2}\frac{k-1}{2} k
+    \lg (1+1/k)
+    $$
+    Como a função $k \lg k$ é crescente, então:
+    $$
+    \frac{n^2 - n}{2}\lg(n)- \sum_{k=2}^{n-2}\frac{k-1}{2} k
+    \lg (1+1/k) \leq 
+    \frac{n^2 - n}{2}\lg(n)- \sum_{k=2}^{n-2}\frac{k-1}{2} \cdot 2
+    \lg (3/2) =
+    $$
+    $$
+    =
+    \frac{n^2}{2}\lg(n)-\frac{n}{2}\lg(n) -
+    \frac{(n-2)(n-3)}{2}
+    \lg (3/2) = 
+    $$
+    $$=
+    \frac{n^2}{2}\lg(n)-\frac{n^2}{2}\lg n -
+    \frac{n}{2} + \frac{5n}{2}\lg(3/2)-3\lg(3/2)
+    \leq
+    \frac{n^2}{2}\lg(n)-\frac{n^2}{8}
+    $$
+    Provando assim a desigualdade desejada.
+
+    \item Prova por substituição. Assumimos que 
+    $T(q)\leq q \lg(q) + \Theta(n)$. Logo:
+    $$E[T(n)]=
+    \Theta(n)+\frac{2}{n}
+    \sum_{q=1}^{n-1}T(q) \leq
+    \Theta(n)+\frac{2}{n}
+    \sum_{q=1}^{n-1}(q \ lg(q)+\Theta(n)) =  
+    $$
+    $$
+    = 
+    \Theta(n)+\frac{2}{n}
+    \sum_{q=1}^{n-1}(q \ lg(q))+\frac{(n-2)\cdot 2}{n}\Theta(n)
+    $$
+    Aplicando a desigualdade do item (d), temos que:
+    $$
+    E[T(n)]\leq 
+    \frac{2}{n}
+    (\frac{1}{2}n^2\lg n-\frac{1}{8}n^2)+\Theta(n) =
+    n\lg n - \frac{1}{4}n + \Theta(n) = n\lg n + \Theta(n)
+    $$
+
+    Portanto, $E[T(n)] = \Theta(n\lg n)$
+
 
 
 \end{enumerate}

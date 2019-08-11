@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1565548711 "hw2.tex" "/home/davi/Dropbox/FGV/EMAp/EAP_Completo/Algoritmos-Estruturas_de_Dados/HomeWorks/hw2/hw2.pdf" "hw2" 1565548711
+["pdflatex"] 1565562113 "hw2.tex" "/home/davi/Dropbox/FGV/EMAp/EAP_Completo/Algoritmos-Estruturas_de_Dados/HomeWorks/hw2/hw2.pdf" "hw2" 1565562114
   "/etc/texmf/web2c/texmf.cnf" 1539878391 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/davi/Dropbox/FGV/EMAp/EAP_Completo/Algoritmos-Estruturas_de_Dados/HomeWorks/hw2/hw2.aux" 1565548711 451 59509706c600806cff502da018ba936b ""
+  "/home/davi/Dropbox/FGV/EMAp/EAP_Completo/Algoritmos-Estruturas_de_Dados/HomeWorks/hw2/hw2.aux" 1565562114 451 59509706c600806cff502da018ba936b ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1480098698 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1480098698 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -33,6 +33,7 @@
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1480098733 35469 70d41d2b9ea31d5d813066df7c99281c ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1480098733 35752 024fb6c41858982481f6968b5fc26508 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb" 1480098733 32362 179c33bbf43f19adbb3825bb4e36e57a ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb" 1480098733 31809 8670ca339bf94e56da1fc21c80635e2a ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb" 1480098733 32762 224316ccc9ad3ca0423a14971cfa7fc1 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1480098733 32726 0a1aea6fcd6468ee2cf64d891f5c43c8 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1480098733 32569 5e5ddc8df908dea60932f3c484a54c0d ""
@@ -99,11 +100,11 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1520210507 32485 c64754543d8ac501bea6e75e209ea521 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1563663548 164837 f472f40ab643c6b1fa7fff8b04d446df ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1563663557 812964 164468b090eb1dc002bde9af4a223590 ""
-  "hw2.aux" 1565548711 451 59509706c600806cff502da018ba936b ""
-  "hw2.tex" 1565548711 7607 6772785c206bf7b9575484b1d6d860b3 ""
+  "hw2.aux" 1565562114 451 59509706c600806cff502da018ba936b ""
+  "hw2.tex" 1565562113 9334 dea892638820de786855514a4d379605 ""
   (generated)
-  "hw2.log"
+  "/home/davi/Dropbox/FGV/EMAp/EAP_Completo/Algoritmos-Estruturas_de_Dados/HomeWorks/hw2/hw2.log"
   "hw2.pdf"
   "/home/davi/Dropbox/FGV/EMAp/EAP_Completo/Algoritmos-Estruturas_de_Dados/HomeWorks/hw2/hw2.pdf"
   "hw2.aux"
-  "/home/davi/Dropbox/FGV/EMAp/EAP_Completo/Algoritmos-Estruturas_de_Dados/HomeWorks/hw2/hw2.log"
+  "hw2.log"
