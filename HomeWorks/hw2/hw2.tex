@@ -180,7 +180,16 @@ print(A_sorted)
   Dessa forma, a complexidade com Quicksort pode ser escrita como:
   $$T(n)=T(q-1)+T(n-q)+\Theta(n)$$
 
-  CONCLUIR
+  Calculando o valor esperado, temos que:
+  $$E[T(n)] = \sum_{q=1}^nT(n)\cdot P(pivot = q)$$
+  $$E[T(n)] = \sum_{q=1}^n(T(q-1)+T(n-q)+\Theta(n))
+  P(pivot = q)=\sum_{q=1}^n(T(q-1)+T(n-q)+\Theta(n))
+  E(X_q)$$
+
+  E finalmente, pela linearidade da esperança, temos que:
+  $$
+    E[T(n)]=E\left[\sum_{q=1}^{n}X_q(T(q-1)+T(n-q)+\Theta(n))\right]  
+  $$
 
   \item Utilizando a linearidade da esperança e o fato que
   $E[X_i]=\frac{1}{n}$, temos:
