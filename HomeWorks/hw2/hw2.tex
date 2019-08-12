@@ -232,11 +232,11 @@ O algoritmo não é estável.
     Perceba que:
     $$
     \sum_{q=1}^{n}[T(q-1)] = T(0) + T(1) + ... + T(n-1) =
-    \sum_{q=1}^n[T(n-q)]
+    \sum_{q=1}^n[T(n-q)] = \sum_{q=0}^{n-1}T(q)
     $$
     Portanto:
     $$E[T(n)]=\Theta(n)+\frac{2}{n}
-    \sum_{q=1}^{n-1}T(q)$$
+    \sum_{q=0}^{n-1}T(q)$$
 
 
     \item Utilizaremos a soma por partes (ou transformação de Abel).
