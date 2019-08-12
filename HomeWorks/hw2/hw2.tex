@@ -157,10 +157,38 @@ print(A_sorted)
 \section*{Questão 3}
 \begin{enumerate}[label=(\alph*)]
   \item Algoritmo Counting Sort satisfaz essas duas condições.
-  \item ???
+  \item Como temos keys com somente 0 e 1, podemos utilizar o algoritmo
+  de PARTITION do Quicksort, que realiza a partição inplace em O(n)
+  e com uso constante de espaço de armazenamento. Assim, cumpre as 
+  duas condições.
   \item Para esse caso podemos utilizar o Insert Sort, pois é estável e inplace.
-  \item ??
-  \item 
+  \item Somente o algoritmos de Counting Sort, pois é o único dos três
+  que é stable e performa em O(n).
+
+  \item Abaixo está o algoritmo de Counting sort modificado:
+
+\begin{algorithm}[H]
+\SetAlgoLined
+  counts = [0 * k]
+
+  \For{$a = 1$ \textbf{in} $A$} {
+    counts[a] = counts[a] + 1
+      }
+    c = 0
+
+  \For{$i = 0$ \textbf{to} $k$} {
+    \For{$j = 1$ \textbf{to} $C[i]$} {
+      c = c + 1
+
+      A[c] = i
+      }
+    }
+
+\caption{COUNTING\_SORT(A,k)}
+\end{algorithm}
+
+O algoritmo não é estável.
+
 \end{enumerate}
 
 \section*{Questão 4}
